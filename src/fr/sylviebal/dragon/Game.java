@@ -28,7 +28,7 @@ public class Game {
             String name = menu.getName();
             initGame(type, name);
             while (!checkWin()) {
-                loop();
+                playTurn();
             }
             board.print();
             System.out.println("\uD83C\uDFC1Vous avez gagné !\uD83C\uDFC1 \uD83C\uDF89\uD83C\uDF89 ");
@@ -37,19 +37,19 @@ public class Game {
 
     public void initGame(String type, String name) {
         board = new Board(64);
-        if(type.equals("Warrior")) {
+        if (type.equals("Warrior")) {
             character = new Warrior(name);
         } else {
             character = new Wizard(name);
         }
-       board.setTile(0, character);
+        board.setTile(0, character); //personnage placée sur la case 0
     }
 
-    public void loop() {
-        board.print();
-        int roll = dice.roll(6);
-        board.moveCharacter(roll);
-        this.scanner.nextLine();
+    public void playTurn() { // playTurn itération de jeu
+        board.print(); //affiche l'état du plateau
+        int roll = dice.roll(6); //lancé un dé a 6faces
+        board.moveCharacter(roll); // déplace le personnage du nombre de case obtenu
+        this.scanner.nextLine(); // le programme attende que l'utilisateur appuie sur entré avant de continuer
     }
 
     public boolean checkWin() {

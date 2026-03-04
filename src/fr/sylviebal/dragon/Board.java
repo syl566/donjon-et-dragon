@@ -1,8 +1,10 @@
 package fr.sylviebal.dragon;
 
+import fr.sylviebal.dragon.outofboardexception.OutOfBoardException;
+
 public class Board {
     private Object[] board;
-    private int characterPosition;
+    private int playerPosition;
 
     public Board(int size) {
         board = new Object[size];
@@ -17,19 +19,20 @@ public class Board {
     }
 
     public void moveCharacter(int move) {
-        Object character = getTile(characterPosition);
-        setTile(characterPosition, null);
+        Object character = getTile(playerPosition);
+        setTile(playerPosition, null);
 
-        characterPosition += move;
-        if (characterPosition >= board.length) {
-            characterPosition = board.length - 1;
+        playerPosition += move;
+        if (playerPosition >= board.length) {
+            playerPosition = board.length - 1;
         }
-        setTile(characterPosition, character);
+
+        setTile(playerPosition, character);
     }
 
     public void print() {
         for (int i = 0; i < board.length; i++) {
-            if(board[i] == null) {
+            if (board[i] == null) {
                 System.out.print("◻");
             } else {
                 System.out.print(board[i]);

@@ -15,17 +15,17 @@ public class Menu {
                 Faites votre choix :
                 1- Commencer la partie
                 2- Modifier personnage
-                3- Quitter le jeux
+                3- Quitter le jeu
                 """);
 
-        int input = scanner.nextInt();
+        int input = scanner.nextInt();//lecture clavier
         scanner.nextLine();
 
-         switch (input) {
+         switch (input) { //gère les choix utilisateur
             case 1:
                 return false;
             case 2:
-                System.out.println("Pas encore implenté");
+                System.out.println("Pas encore implémenté");
                 return mainMenu();
 
             case 3:

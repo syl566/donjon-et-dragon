@@ -1,15 +1,15 @@
 package fr.sylviebal.dragon.character;
 
 import fr.sylviebal.dragon.equipement.OffensiveEquipment;
-
+//class abstrait
 public abstract class GameCharacter {
-
+//attribut
     private String name;
     private String type;
     private int life;
     private int attackPower;
     private OffensiveEquipment offensiveEquipment;
-
+//constructeur
     public GameCharacter(String name, String type, int life, int attackPower) {
         this.name = name;
         this.type = type;
@@ -20,7 +20,7 @@ public abstract class GameCharacter {
     // Méthode abstraite
     public abstract void attack();
 
-    // Getters
+    // Getters sert à lire les variables privées
     public String getName() {
         return name;
     }
@@ -40,13 +40,14 @@ public abstract class GameCharacter {
     public OffensiveEquipment getOffensiveEquipment() {
         return offensiveEquipment;
     }
-
+// setter permet de modifier
     public void setOffensiveEquipment(OffensiveEquipment offensiveEquipment) {
         this.offensiveEquipment = offensiveEquipment;
     }
 
-    @Override
-    public String toString() {
+    @Override // redefinis une methode qui existe déja
+
+    public String toString() { //sert à afficher l' objet
         return type + " " + name +
                 " | ❤️ Life: " + life +
                 " | ⚔️ Attack: " + attackPower;
