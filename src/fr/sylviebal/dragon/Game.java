@@ -1,7 +1,7 @@
 package fr.sylviebal.dragon;
 
 
-import fr.sylviebal.dragon.character.Character;
+import fr.sylviebal.dragon.character.GameCharacter;
 import fr.sylviebal.dragon.character.Warrior;
 import fr.sylviebal.dragon.character.Wizard;
 
@@ -13,7 +13,7 @@ public class Game {
     private Menu menu;
     private Dice dice;
     private Board board;
-    private Character character;
+    private GameCharacter character;
     private Scanner scanner;
 
     public Game(Menu menu, Dice dice, Scanner scanner) {
@@ -31,7 +31,7 @@ public class Game {
                 loop();
             }
             board.print();
-            System.out.println("Vous avez gagné !");
+            System.out.println("\uD83C\uDFC1Vous avez gagné !\uD83C\uDFC1 \uD83C\uDF89\uD83C\uDF89 ");
         }
     }
 

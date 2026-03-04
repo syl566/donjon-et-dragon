@@ -13,7 +13,7 @@ public class Menu {
     public boolean mainMenu() {
         System.out.println("""
                 Faites votre choix :
-                1-Nouveau personnage
+                1- Commencer la partie
                 2- Modifier personnage
                 3- Quitter le jeux
                 """);

@@ -30,7 +30,7 @@ public class Board {
     public void print() {
         for (int i = 0; i < board.length; i++) {
             if(board[i] == null) {
-                System.out.print(".");
+                System.out.print("◻");
             } else {
                 System.out.print(board[i]);
             }

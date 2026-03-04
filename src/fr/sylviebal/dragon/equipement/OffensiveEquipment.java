@@ -1,7 +1,26 @@
 package fr.sylviebal.dragon.equipement;
 
-public class OffensiveEquipment {
+public abstract class OffensiveEquipment{
     private String name;
-    private int attackPower;
     private String type;
+    private int offensivePower;
+
+    public OffensiveEquipment(String name, String type,int offensivePower){
+        this.name = name;
+        this.type = type;
+        this.offensivePower = offensivePower;
+    }
+    public abstract void offensive();
+
+    public String getName(){
+        return name;
+    }
+    public int getOffensivePower(){
+        return offensivePower;
+    }
+    @Override
+    public String toString() {
+        return type + " " + name +
+                " | ⚔️ Offensive: " + offensivePower;
+    }
 }
