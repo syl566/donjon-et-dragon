@@ -6,8 +6,8 @@ public class Shield extends DefensiveEquipment{
     }
 
     @Override
-    public void defensive(){
-        System.out.println(" \uD83D\uDEE1\uFE0F " + getName() + "se défendre à l'aide d'un bouclier" + getDefensePower());
+    public  String defensive(){
+        return "se défendre à l'aide d'un bouclier" + getDefensePower();
     }
     @Override
     public String toString() {

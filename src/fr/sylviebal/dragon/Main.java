@@ -9,18 +9,14 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("====== Bienvenue à Donjon et Dragon ======");
-        Scanner scanner = new Scanner(System.in);
-        Game game = new Game(new Menu(scanner), new Dice(), scanner);
-        game.startGame();
 
-        GameCharacter warrior = new Warrior("Osiris");
-        GameCharacter wizard = new Wizard("Merlin");
-        System.out.println(warrior);
+        Menu menu = new Menu();
 
-        warrior.attack();
+        menu.displayWelcomeMessage();
+        menu.displayCharacters();
 
-        System.out.println(wizard);
-        wizard.attack();
+        int choice = menu.getCharacterChoice();
+
+        menu.displayCharacterSelected(choice);
     }
 }

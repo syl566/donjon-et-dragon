@@ -3,46 +3,39 @@ package fr.sylviebal.dragon;
 import java.util.Scanner;
 
 public class Menu {
-    private Scanner scanner;
 
-    //constructeur
-    public Menu(Scanner scanner) {
-        this.scanner = scanner;
+    public void displayWelcomeMessage() {
+        System.out.println("=================================");
+        System.out.println("   Bienvenue dans le jeu !");
+        System.out.println("=================================");
     }
 
-    public boolean mainMenu() {
-        System.out.println("""
-                Faites votre choix :
-                1- Commencer la partie
-                2- Modifier personnage
-                3- Quitter le jeu
-                """);
+    public void displayCharacters() {
+        System.out.println("Choisissez votre personnage :");
+        System.out.println("1 - Guerrier");
+        System.out.println("2 - Mage");
+    }
 
-        int input = scanner.nextInt();//lecture clavier
-        scanner.nextLine();
+    public int getCharacterChoice() {
+        Scanner scanner = new Scanner(System.in);
+        int choice;
 
-         switch (input) { //gère les choix utilisateur
+        System.out.print("Entrez le numéro du personnage : ");
+        choice = scanner.nextInt();
+
+        return choice;
+    }
+
+    public void displayCharacterSelected(int choice) {
+        switch (choice) {
             case 1:
-                return false;
+                System.out.println("Vous avez choisi : Guerrier");
+                break;
             case 2:
-                System.out.println("Pas encore implémenté");
-                return mainMenu();
-
-            case 3:
-                return true;
-            default:
-                System.out.println(" Veuillez choisir le bon numéro ");
-                return mainMenu();
+                System.out.println("Vous avez choisi : Mage");
+                break;
+                default:
+                System.out.println("Choix invalide.");
         }
-    }
-
-    public String getType() {
-        System.out.println("Faites votre choix entre Warrior et Wizard");
-        return scanner.nextLine();
-    }
-
-    public String getName() {
-        System.out.println(" Enter un nom");
-        return scanner.nextLine();
     }
 }

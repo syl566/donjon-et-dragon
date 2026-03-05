@@ -5,12 +5,12 @@ public  abstract class  DefensiveEquipment {
     private int defensePower;
     private String type;
 
-    public DefensiveEquipment(String name,String type, int defensePower){
+    protected DefensiveEquipment(String name,String type, int defensePower){
         this.name = name;
         this.type = type;
         this.defensePower = defensePower;
     }
-    public abstract void defensive();
+    public abstract String defensive();
 
     public String getName(){
         return name;

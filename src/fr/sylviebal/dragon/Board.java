@@ -1,9 +1,35 @@
 package fr.sylviebal.dragon;
 
-import fr.sylviebal.dragon.outofboardexception.OutOfBoardException;
+import java.util.ArrayList;
 
 public class Board {
-    private Object[] board;
+    private Cell[] cells;
+
+    public Board(int size){
+        cells = new Cell[size];
+        for (int i = 0; i < size;i++){
+            cells[i] = new Cell(i);
+        }
+    }
+    public int getSize() {
+        return cells.length;
+    }
+    public Cell getCell(int index) {
+        return cells[index];
+    }
+
+    // calcul la nouvelle position sur le plateau
+    public int move(int currentPosition, int diceValue) {
+        int newPos = currentPosition + diceValue;
+        if (newPos >= getSize()) {
+            newPos = getSize() - 1; // reste sur la dernière case
+        }
+        return newPos;
+    }
+}
+
+
+   /* private Object[] board;
     private int playerPosition;
 
     public Board(int size) {
@@ -41,5 +67,5 @@ public class Board {
         System.out.println();
     }
 
-}
+}*/
 

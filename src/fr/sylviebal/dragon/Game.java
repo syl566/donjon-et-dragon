@@ -1,6 +1,5 @@
 package fr.sylviebal.dragon;
 
-
 import fr.sylviebal.dragon.character.GameCharacter;
 import fr.sylviebal.dragon.character.Warrior;
 import fr.sylviebal.dragon.character.Wizard;
@@ -16,7 +15,7 @@ public class Game {
     private GameCharacter character;
     private Scanner scanner;
 
-    public Game(Menu menu, Dice dice, Scanner scanner) {
+    public Game() {
         this.menu = menu;
         this.dice = dice;
         this.scanner = scanner;

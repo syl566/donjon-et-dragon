@@ -10,7 +10,7 @@ public abstract class GameCharacter {
     private int attackPower;
     private OffensiveEquipment offensiveEquipment;
 //constructeur
-    public GameCharacter(String name, String type, int life, int attackPower) {
+    protected GameCharacter(String name, String type, int life, int attackPower) {
         this.name = name;
         this.type = type;
         this.life = life;
@@ -40,6 +40,7 @@ public abstract class GameCharacter {
     public OffensiveEquipment getOffensiveEquipment() {
         return offensiveEquipment;
     }
+
 // setter permet de modifier
     public void setOffensiveEquipment(OffensiveEquipment offensiveEquipment) {
         this.offensiveEquipment = offensiveEquipment;
