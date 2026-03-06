@@ -6,14 +6,15 @@ public class Menu {
 
     public void displayWelcomeMessage() {
         System.out.println("=================================");
-        System.out.println("   Bienvenue dans le jeu !");
+        System.out.println("   Bienvenue dans Donjon et Dragon !");
         System.out.println("=================================");
     }
 
-    public void displayCharacters() {
+    public boolean displayCharacters() {
         System.out.println("Choisissez votre personnage :");
-        System.out.println("1 - Guerrier");
-        System.out.println("2 - Mage");
+        System.out.println("1 - Warrior");
+        System.out.println("2 - Wizard");
+        return false;
     }
 
     public int getCharacterChoice() {
@@ -29,12 +30,12 @@ public class Menu {
     public void displayCharacterSelected(int choice) {
         switch (choice) {
             case 1:
-                System.out.println("Vous avez choisi : Guerrier");
+                System.out.println("Vous avez choisi : Warrior");
                 break;
             case 2:
-                System.out.println("Vous avez choisi : Mage");
+                System.out.println("Vous avez choisi : Wizard");
                 break;
-                default:
+            default:
                 System.out.println("Choix invalide.");
         }
     }

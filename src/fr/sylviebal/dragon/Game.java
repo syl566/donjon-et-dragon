@@ -4,7 +4,6 @@ import fr.sylviebal.dragon.character.GameCharacter;
 import fr.sylviebal.dragon.character.Warrior;
 import fr.sylviebal.dragon.character.Wizard;
 
-
 import java.util.Scanner;
 
 public class Game {
@@ -12,23 +11,21 @@ public class Game {
     private Menu menu;
     private Dice dice;
     private Board board;
-    private GameCharacter character;
+    private Character character;
     private Scanner scanner;
 
-    public Game() {
+    public Game(Menu menu,Dice dice,Scanner scanner) {
         this.menu = menu;
         this.dice = dice;
         this.scanner = scanner;
     }
 
     public void startGame() {
-        while (!menu.mainMenu()) {
-            String type = menu.getType();
-            String name = menu.getName();
+        while (!menu.displayCharacters()) {
+            String type = String.valueOf(menu.getCharacterChoice());
+            String name = menu.displayCharacterSelected(choice);
             initGame(type, name);
-            while (!checkWin()) {
-                playTurn();
-            }
+            while (!checkWin()) playTurn();
             board.print();
             System.out.println("\uD83C\uDFC1Vous avez gagné !\uD83C\uDFC1 \uD83C\uDF89\uD83C\uDF89 ");
         }
@@ -36,11 +33,8 @@ public class Game {
 
     public void initGame(String type, String name) {
         board = new Board(64);
-        if (type.equals("Warrior")) {
-            character = new Warrior(name);
-        } else {
-            character = new Wizard(name);
-        }
+        if (type.equals("Warrior")) character = new character("warrior");
+        else character = new character("wizard");
         board.setTile(0, character); //personnage placée sur la case 0
     }
 
