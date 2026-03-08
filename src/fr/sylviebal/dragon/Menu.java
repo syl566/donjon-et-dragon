@@ -12,8 +12,8 @@ public class Menu {
 
     public boolean displayCharacters() {
         System.out.println("Choisissez votre personnage :");
-        System.out.println("1 - Warrior");
-        System.out.println("2 - Wizard");
+        System.out.println("1 - \uD83E\uDD77\uD83C\uDFFB Warrior");
+        System.out.println("2 - \uD83E\uDDD9\u200D♂\uFE0F Wizard");
         return false;
     }
 

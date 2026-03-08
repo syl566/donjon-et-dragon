@@ -1,7 +1,7 @@
 package fr.sylviebal.dragon.equipement;
 
-public class Weapon extends OffensiveEquipment {
-    public Weapon(String name) {
+public class WeaponClub extends OffensiveEquipment {
+    public WeaponClub(String name) {
         super(name, "Weapon", 5);
     }
 

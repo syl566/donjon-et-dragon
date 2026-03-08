@@ -1,15 +1,17 @@
-package fr.sylviebal.dragon.character;
+package fr.sylviebal.dragon.character.game;
 
 import fr.sylviebal.dragon.equipement.OffensiveEquipment;
+
 //class abstrait
 public abstract class GameCharacter {
-//attribut
+    //attribut
     private String name;
     private String type;
     private int life;
     private int attackPower;
     private OffensiveEquipment offensiveEquipment;
-//constructeur
+
+    //constructeur
     protected GameCharacter(String name, String type, int life, int attackPower) {
         this.name = name;
         this.type = type;
@@ -25,12 +27,23 @@ public abstract class GameCharacter {
         return name;
     }
 
-    public String getType() {
-        return type;
+     public boolean isAlive() {
+        return this.life > 0;
     }
 
-    public int getLife() {
-        return life;
+    // prendre des dégâts
+    public void takeDamage(int damage) {
+        this.life -= damage;
+        if (this.life < 0) {
+            this.life = 0;
+        }
+        System.out.println("💔 " + name + " perd " + damage + " points de vie ! Vie restante : " + this.life);
+    }
+
+    // récupérer de la vie
+    public void heal(int amount) {
+        this.life += amount;
+        System.out.println("💚 " + name + " récupère " + amount + " points de vie ! Vie : " + this.life);
     }
 
     public int getAttackPower() {
@@ -41,7 +54,7 @@ public abstract class GameCharacter {
         return offensiveEquipment;
     }
 
-// setter permet de modifier
+    // setter permet de modifier
     public void setOffensiveEquipment(OffensiveEquipment offensiveEquipment) {
         this.offensiveEquipment = offensiveEquipment;
     }

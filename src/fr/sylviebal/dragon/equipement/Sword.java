@@ -1,7 +1,7 @@
 package fr.sylviebal.dragon.equipement;
 
-public class Spell extends OffensiveEquipment{
-    public Spell(String name){
+public class Sword extends OffensiveEquipment{
+    public Sword(String name){
         super(name,"Spell",7);
     }
     @Override

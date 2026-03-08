@@ -1,4 +1,6 @@
-package fr.sylviebal.dragon.character;
+package fr.sylviebal.dragon.character.hero;
+
+import fr.sylviebal.dragon.character.game.GameCharacter;
 
 public class Warrior extends GameCharacter {
 
