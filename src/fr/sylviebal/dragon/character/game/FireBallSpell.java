@@ -3,7 +3,8 @@ package fr.sylviebal.dragon.character.game;
 public class FireBallSpell extends BonusCell{
   @Override
     public void interact(GameCharacter character){
-      System.out.println("Tu reçois une boule de feu - 4life");
+      System.out.println("Tu reçois une boule de feu");
+      character.takeDamage(4);
   }
     @Override
     public String toString() {

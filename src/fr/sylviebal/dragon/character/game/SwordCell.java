@@ -7,7 +7,7 @@ public class SwordCell extends BonusCell {
     public void interact(GameCharacter character) {
         Sword sword = new Sword("Excalibur");
         character.setOffensiveEquipment(sword);
-        System.out.println("⚔️ Tu trouves une Épée ! +10 en attaque !");
+        System.out.println("⚔️ Tu trouves une Épée !");
     }
 
     @Override

@@ -27,7 +27,7 @@ public class Main {
             game.playTurn();
         }
         if (character.isAlive()) {
-            System.out.println("🏆 Félicitations " + character.getName() + " ! Tu as terminé le donjon !");
+            System.out.println("🏆 Félicitations " + character.getName() + " ! Tu as terminé  donjon_et_dragon !");
         } else {
             System.out.println("💀 Game Over ! " + character.getName() + " est mort...");
         }
