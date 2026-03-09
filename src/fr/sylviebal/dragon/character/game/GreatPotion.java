@@ -4,7 +4,7 @@ public class GreatPotion extends BonusCell {
     @Override
     public void interact(GameCharacter character) {
         System.out.println(" \uD83D\uDC8A Tu as trouvée une grand potion! ");
-        character.heal(10);
+        character.heal(5);
     }
 
     @Override
