@@ -4,7 +4,7 @@ import fr.sylviebal.dragon.character.game.EnemyCell;
 
 public class Dragon extends EnemyCell {
     public Dragon(String name) {
-        super(name, 20, 15);
+        super(name, 15, 4);
     }
 
     @Override
