@@ -4,8 +4,7 @@ import java.util.Scanner;
 
 public class Game {
     private GameCharacter gameCharacter;
-    private Character character;
-    private int playerPosition;
+    private int playerPosition ;
     private Board board;
     private Scanner scanner;
 
@@ -16,7 +15,9 @@ public class Game {
         this.scanner = new Scanner(System.in);
     }
 
+
     public void playTurn() {
+        gameCharacter.attack();
 
         System.out.println("Appuyez sur Entrée pour lancer le dé");
         scanner.nextLine();

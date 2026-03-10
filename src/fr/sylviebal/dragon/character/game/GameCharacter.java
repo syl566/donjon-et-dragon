@@ -11,14 +11,16 @@ public abstract class GameCharacter {
     private String type;
     private int life;
     private int attackPower;
+    private int attackBonus;
     private OffensiveEquipment offensiveEquipment;
 
     // Constructeur
-    protected GameCharacter(String name, String type, int life, int attackPower) {
+    protected GameCharacter(String name, String type, int life, int attackPower, int attackBonus) {
         this.name = name;
         this.type = type;
         this.life = life;
         this.attackPower = attackPower;
+        this.attackBonus = attackBonus;
     }
 
     // Méthode abstraite
@@ -48,6 +50,10 @@ public abstract class GameCharacter {
         return this.life > 0;
     }
 
+    public int getAttackBonus() {
+          return attackBonus;
+    }
+
     public OffensiveEquipment getOffensiveEquipment() {
         return offensiveEquipment;
     }
@@ -65,25 +71,25 @@ public abstract class GameCharacter {
     public void setLifePoints(int life){
         this.life = life;
     }
-    public void setAttackPower(int AttackPower){
-        this.attackPower = attackPower;
-    }
+    public void setAttackPower(int attackPower){this.attackPower = attackPower;}
+    public void setAttackBonus(int attackBonus){this.attackBonus = attackBonus;}
 
     public void setOffensiveEquipment(OffensiveEquipment offensiveEquipment) {
         this.offensiveEquipment = offensiveEquipment;
     }
 
-    // Méthodes pour gérer la vie
+
     public void takeDamage(int damage) {
         this.life -= damage;
         if (this.life < 0) this.life = 0;
         System.out.println("💔 " + name + " perd " + damage + " points de vie ! Vie restante : " + this.life);
     }
-
+    // Méthodes pour gérer la vie
     public void heal(int amount) {
         this.life += amount;
         System.out.println("💚 " + name + " récupère " + amount + " points de vie ! Vie : " + this.life);
     }
+
 
     @Override
     public String toString() {
