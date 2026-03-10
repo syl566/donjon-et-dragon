@@ -1,5 +1,7 @@
 package fr.sylviebal.dragon.character.game;
 
+import fr.sylviebal.dragon.character.enemy.Dragon;
+
 public class FireBallSpell extends BonusCell{
   @Override
     public void interact(GameCharacter character){
@@ -8,7 +10,7 @@ public class FireBallSpell extends BonusCell{
   }
     @Override
     public String toString() {
-        return "⚔️ boule de feu";
+        return " \uD83D\uDD25 boule de feu";
     }
 
 }

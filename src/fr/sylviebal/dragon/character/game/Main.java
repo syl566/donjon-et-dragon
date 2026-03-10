@@ -6,28 +6,29 @@ import fr.sylviebal.dragon.character.hero.Warrior;
 import fr.sylviebal.dragon.character.hero.Wizard;
 
 import java.sql.SQLException;
-
+import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) throws SQLException {
+
         // créer la dao
         int choice = getChoice();
 
-        GameCharacter character;
+        GameCharacter hero;
         if (choice == 1) {
-            character = new Warrior("Guerrier");
+            hero = new Warrior("Guerrier");
         } else {
-            character = new Wizard("Mage");
+            hero = new Wizard("Mage");
         }
-        Game game = new Game(character);
+        Game game = new Game(hero);
         while (!game.isFinished()) {
             game.playTurn();
         }
-        if (character.isAlive()) {
-            System.out.println("🏆 Félicitations " + character.getName() + " ! Tu as terminé  donjon_et_dragon !");
+        if (hero.isAlive()) {
+            System.out.println("🏆 Félicitations " + hero.getName() + " ! Tu as terminé  donjon_et_dragon !");
         } else {
-            System.out.println("💀 Game Over ! " + character.getName() + " est mort...");
+            System.out.println("💀 Game Over ! " + hero.getName() + " est mort...");
         }
     }
 
@@ -41,10 +42,11 @@ public class Main {
         // affiche tous les personnages
         dao.getHeroes();
 
-        // créer un nouvel objet dans la classe Menu et le stocker dans la variable menu
-        Menu menu = new Menu();
+        Scanner scanner = new Scanner(System.in);   //création du scanner
+        Menu menu = new Menu(scanner);
 
         menu.displayWelcomeMessage();
+        menu.mainMenu();
         menu.displayCharacters();
 
         int choice = menu.getCharacterChoice();

@@ -4,7 +4,7 @@ import fr.sylviebal.dragon.character.game.EnemyCell;
 
 public class Goblin extends EnemyCell {
     public Goblin(String name) {
-        super(name, 6, 1); // ✅ nom, vie, attaque
+        super(name, 6, 1);
     }
 
     @Override

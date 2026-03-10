@@ -20,7 +20,7 @@ public class GameCharacterDao {
     public List<GameCharacter> getHeroes() {
 
         List<GameCharacter> heroes = new ArrayList<>();
-        String sql = "SELECT * FROM characters";
+        String sql = "SELECT * FROM GameCharacter";
 
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -34,7 +34,7 @@ public class GameCharacterDao {
                 hero.setName(rs.getString("name"));
                 hero.setType(rs.getString("type"));
                 hero.setLifePoints(rs.getInt("lifePoints"));
-                hero.setAttackPower(rs.getInt("attack"));
+                hero.setAttackPower(rs.getInt("attackPower"));
 
                 heroes.add(hero);
 
@@ -51,7 +51,7 @@ public class GameCharacterDao {
     // créer un personnage
     public void createHero(GameCharacter hero) {
 
-        String sql = "INSERT INTO characters (name, type, lifePoints, attackPower) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO GameCharacter (name, type, lifePoints, AttackPower) VALUES (?, ?, ?, ?)";
 
         try {
 
@@ -74,7 +74,7 @@ public class GameCharacterDao {
     // modifier un personnage
     public void editHero(GameCharacter hero) {
 
-        String sql = "UPDATE characters SET name=?, type=?, lifePoints=?, attackPower=? WHERE id=?";
+        String sql = "UPDATE GameCharacter SET name=?, type=?, lifePoints=?, AttackPower=? WHERE id=?";
 
         try {
 
@@ -96,7 +96,7 @@ public class GameCharacterDao {
     // mettre à jour les points de vie
     public void changeLifePoints(GameCharacter hero) {
 
-        String sql = "UPDATE characters SET lifePoints=? WHERE id=?";
+        String sql = "UPDATE GameCharacter SET lifePoints=? WHERE id=?";
 
         try {
 

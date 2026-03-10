@@ -30,17 +30,22 @@ public abstract class EnemyCell extends Cell {
 
         if (character.getOffensiveEquipment() != null) {
             playerAttack += character.getOffensiveEquipment().getOffensivePower();
-            System.out.println("⚔️ Bonus arme : +" + character.getOffensiveEquipment().getOffensivePower());
         }
-
         this.takeDamage(playerAttack);
+
         while (character.isAlive() && this.isAlive()) {
             System.out.println("\n👊 Appuie sur Entrée pour attaquer...");
             scanner.nextLine();
-            this.takeDamage(character.getAttackPower());
+
+            if (character.getOffensiveEquipment() != null) {
+                playerAttack += character.getOffensiveEquipment().getOffensivePower();
+            }
+
+            this.takeDamage(playerAttack);
             System.out.println(name + " : ❤️ " + this.life + " restant");
 
             if (this.isAlive()) {
+                System.out.println("💀 " + name + " contre-attaque !");
                 character.takeDamage(this.attackPower);
             }
         }
