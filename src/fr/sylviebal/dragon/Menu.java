@@ -60,11 +60,6 @@ public class Menu {
         return choice;
     }
 
-    public String getName() {
-        System.out.println("Entrer un nom");
-        return scanner.nextLine();
-    }
-
     public void displayCharacterSelected(int choice) {
         switch (choice) {
             case 1:
@@ -76,5 +71,10 @@ public class Menu {
             default:
                 System.out.println("Choix invalide.");
         }
+    }
+
+    public String getName() {
+        System.out.println("Entrer un nom");
+        return scanner.nextLine();
     }
 }

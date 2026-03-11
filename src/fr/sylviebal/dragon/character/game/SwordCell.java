@@ -9,8 +9,9 @@ public class SwordCell extends BonusCell {
         if (character instanceof Warrior) {
             Sword sword = new Sword("Excalibur");
             character.setOffensiveEquipment(sword);
+            ((Warrior) character).setSword(sword);
+            ((Warrior) character).pickUp(5,2);
             System.out.println("⚔️ Tu trouves une Épée !");
-            ((Warrior) character).pickUp(5);
         } else {
             System.out.println("Tu vois une épée ");
         }

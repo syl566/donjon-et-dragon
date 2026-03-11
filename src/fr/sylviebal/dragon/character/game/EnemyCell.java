@@ -5,7 +5,7 @@ import java.util.Scanner;
 public abstract class EnemyCell extends Cell {
     protected String name;
     protected int life;
-    protected int attackPower ;
+    protected int attackPower;
     private Scanner scanner = new Scanner(System.in);
 
     public EnemyCell(String name, int life, int attackPower) {
@@ -23,35 +23,30 @@ public abstract class EnemyCell extends Cell {
         if (this.life < 0) this.life = 0;
     }
 
+
     @Override
     public void interact(GameCharacter character) {
-        int playerAttack = character.getAttackPower();
-        System.out.println("⚔️ Combat contre " + name + " ! ❤️ " + life);
+        Story.onEnemyEncounter(this.name);
 
+        int playerAttack = character.getAttackPower();
         if (character.getOffensiveEquipment() != null) {
             playerAttack += character.getOffensiveEquipment().getOffensivePower();
         }
+
         this.takeDamage(playerAttack);
+        System.out.println("⚔️ " + character.getName() + " frappe " + name + " avec " + playerAttack + " !");
+        System.out.println("💔 " + name + " : ❤️ " + this.life + " restant");
 
-        while (character.isAlive() && this.isAlive()) {
-            System.out.println("\n👊 Appuie sur Entrée pour attaquer...");
-            scanner.nextLine();
+        character.setAttackPower(character.getAttackPower() - 1);
+        System.out.println("😓 Le combat épuise " + character.getName() + " ! Attaque : " + character.getAttackPower());
 
-            if (character.getOffensiveEquipment() != null) {
-                playerAttack += character.getOffensiveEquipment().getOffensivePower();
-            }
-
-            this.takeDamage(playerAttack);
-            System.out.println(name + " : ❤️ " + this.life + " restant");
-
-            if (this.isAlive()) {
-                System.out.println("💀 " + name + " contre-attaque !");
-                character.takeDamage(this.attackPower);
-            }
-        }
-
-        if (character.isAlive()) {
-            System.out.println("🏆 Tu as vaincu " + name + " !");
+        if (!this.isAlive()) {
+            System.out.println("💀 " + name + " est vaincu !");
+        } else {
+            System.out.println("💥 " + name + " réplique et s'enfuit !");
+            character.takeDamage(this.attackPower);
         }
     }
 }
+
+

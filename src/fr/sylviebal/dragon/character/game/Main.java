@@ -11,7 +11,16 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) throws SQLException {
+        Scanner scanner = new Scanner(System.in);
+        Menu menu = new Menu(scanner);
 
+        Story.introduction();
+        menu.displayWelcomeMessage();
+
+        if (menu.mainMenu()) {
+            System.out.println("👋 Au revoir !");
+            return;
+        }
         // créer la dao
         int choice = getChoice();
 
@@ -21,14 +30,16 @@ public class Main {
         } else {
             hero = new Wizard("Mage");
         }
+
+        Story.characterIntro(hero);
         Game game = new Game(hero);
         while (!game.isFinished()) {
             game.playTurn();
         }
         if (hero.isAlive()) {
-            System.out.println("🏆 Félicitations " + hero.getName() + " ! Tu as terminé  donjon_et_dragon !");
+            Story.onVictory(hero);
         } else {
-            System.out.println("💀 Game Over ! " + hero.getName() + " est mort...");
+            Story.onGameOver(hero);
         }
     }
 
@@ -36,7 +47,7 @@ public class Main {
         GameCharacterDao dao = new GameCharacterDao();
 
         // créer un personnage
-        GameCharacter hero = new Warrior("JEAN");
+        GameCharacter hero = new Warrior("");
         dao.createHero(hero);
 
         // affiche tous les personnages

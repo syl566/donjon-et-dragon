@@ -8,11 +8,12 @@ public class WeaponClubCell extends BonusCell {
     public void interact(GameCharacter character) {
         if (character instanceof Warrior) {
             WeaponClub weaponClub = new WeaponClub("massue");
-            character.setOffensiveEquipment(weaponClub);
-            System.out.println("Tu trouves une massue!");
-            ((Warrior) character).pickUp(3);
+            character.setOffensiveEquipment(weaponClub);   // stocke dans gameCharacter
+            ((Warrior) character).setWeaponClub(weaponClub); // stocke dans Warrior
+            ((Warrior) character).pickUp(3, 5);
+            System.out.println("🪓 Tu trouves une Massue ! ");
         } else {
-            System.out.println("Tu vois une massue");
+            System.out.println("Tu vois une massue, elle est trop lourde pour toi !");
         }
     }
 
