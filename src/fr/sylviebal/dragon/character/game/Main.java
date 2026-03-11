@@ -26,9 +26,9 @@ public class Main {
 
         GameCharacter hero;
         if (choice == 1) {
-            hero = new Warrior("Guerrier");
+            hero = new Warrior("");
         } else {
-            hero = new Wizard("Mage");
+            hero = new Wizard("");
         }
 
         Story.characterIntro(hero);

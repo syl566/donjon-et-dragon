@@ -32,7 +32,7 @@ public class Story {
     public static void characterIntro(GameCharacter character) {
         System.out.println("⚡ " + character.getName() + " accepte la quête !");
         if (character instanceof Warrior) {
-            System.out.println("🗡️  En tant que Warrior, il brandit son épée et");
+            System.out.println(" En tant que Warrior, il brandit son épée 🗡️ et");
             System.out.println("   pénètre dans le donjon sans crainte...");
         } else if (character instanceof Wizard) {
             System.out.println("✨ En tant que Wizard, il murmure un sort de   ");
@@ -81,6 +81,36 @@ public class Story {
             default:
                 System.out.println("✨ Tu trouves quelque chose d'utile !");
         }
+    }
+    public static void onFinalBoss() {
+        System.out.println("=================================================");
+        System.out.println("🐉 BOSS FINAL — RYUU LE DRAGON MAUDIT ! 🐉");
+        System.out.println("=================================================");
+        System.out.println("""
+                    /\\_____/\\
+                   (  o   o  )
+                    \\  ~~~  /
+                  🔥/|     |\\🔥
+                   / |     | \\
+                  🐾          🐾
+            """);
+        System.out.println("   Les murs tremblent... Une chaleur insupportable  ");
+        System.out.println("   envahit le couloir. Deux yeux rouges brillent    ");
+        System.out.println("   dans l'obscurité...                              ");
+        System.out.println();
+        System.out.println("🐉 Ryuu : AUCUN HÉROS N'A SURVÉCU JUSQU'ICI...");
+        System.out.println("🐉 Ryuu : TU NE RÉCUPÈRERAS PAS LE CRISTAL !");
+        System.out.println("=================================================");
+    }
+
+    public static void onFinalBossVictory(GameCharacter character) {
+        System.out.println("=================================================");
+        System.out.println("✨ RYUU EST VAINCU ! ✨");
+        System.out.println();
+        System.out.println("   " + character.getName() + " a terrassé le Dragon Ryuu !");
+        System.out.println("   Le cristal sacré brille à nouveau...            ");
+        System.out.println("   Le royaume de Valdris est libéré ! 🎉            ");
+        System.out.println("=================================================");
     }
 
     public static void onVictory(GameCharacter character) {

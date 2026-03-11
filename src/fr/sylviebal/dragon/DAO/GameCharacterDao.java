@@ -28,7 +28,7 @@ public class GameCharacterDao {
 
             while (rs.next()) {
 
-                GameCharacter hero = new Wizard("merlin");
+                GameCharacter hero = new Wizard("");
 
                 hero.setId(rs.getInt("id"));
                 hero.setName(rs.getString("name"));

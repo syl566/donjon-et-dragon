@@ -6,14 +6,15 @@ import fr.sylviebal.dragon.equipement.Sword;
 public class SwordCell extends BonusCell {
     @Override
     public void interact(GameCharacter character) {
+        Story.onBonusFound("Épée");
         if (character instanceof Warrior) {
             Sword sword = new Sword("Excalibur");
             character.setOffensiveEquipment(sword);
             ((Warrior) character).setSword(sword);
             ((Warrior) character).pickUp(5,2);
-            System.out.println("⚔️ Tu trouves une Épée !");
+            System.out.println("⚔️ Tu avances vers l'épée ! et la récupère :)");
         } else {
-            System.out.println("Tu vois une épée ");
+            System.out.println("Tu vois une épée mais elle est bloquée impossible de la récupérer!!! ");
         }
     }
 

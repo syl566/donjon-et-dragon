@@ -34,11 +34,11 @@ public abstract class EnemyCell extends Cell {
         }
 
         this.takeDamage(playerAttack);
-        System.out.println("⚔️ " + character.getName() + " frappe " + name + " avec " + playerAttack + " !");
+        System.out.println(" " + character.getName() + " Il frappe " + name + " avec " + playerAttack + " !");
         System.out.println("💔 " + name + " : ❤️ " + this.life + " restant");
 
         character.setAttackPower(character.getAttackPower() - 1);
-        System.out.println("😓 Le combat épuise " + character.getName() + " ! Attaque : " + character.getAttackPower());
+        System.out.println("😓 Le combat épuise " + name + " ! Attaque : " + character.getAttackPower());
 
         if (!this.isAlive()) {
             System.out.println("💀 " + name + " est vaincu !");

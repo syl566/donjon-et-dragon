@@ -7,6 +7,22 @@ out/
 ### Fichiers sensibles ###
 src/fr/sylviebal/dragon/character/DAO/DataBaseConnection.java
 
+### Fichiers de configuration avec mots de passe ###
+*.env
+*.properties
+config.java
+application.properties
+
+### Clés et certificats ###
+*.key
+*.pem
+*.p12
+*.jks
+
+### Logs (peuvent contenir des infos sensibles) ###
+*.log
+logs/
+
 ### Eclipse ###
 .apt_generated
 .classpath

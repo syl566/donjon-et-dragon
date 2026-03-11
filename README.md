@@ -14,7 +14,7 @@ Le joueur choisit son personnage (**Warrior** ou **Wizard**), lance un dé à ch
 
 ## 🎮 Fonctionnalités
 
-- 🎲 Déplacement aléatoire sur un plateau de 65 cases
+- 🎲 Déplacement aléatoire sur un plateau de 64 cases
 - ⚔️ Système de combat par échange (joueur frappe → ennemi réplique et s'enfuit)
 - 🧙 2 personnages jouables : Warrior et Wizard
 - 👺 3 types d'ennemis : Dragon, Gobelin, Sorcier
@@ -31,7 +31,7 @@ Le projet utilise les principes de la **Programmation Orientée Objet** :
 ```
 character/
 ├── enemy/          → Dragon, Gobelin, Witch (héritent de EnemyCell)
-├── game/           → Board, Cell, BonusCell, EnemyCell, Game, Story, Animation...
+├── game/           → Board, Cell, BonusCell, EnemyCell, Game, Story...
 ├── hero/           → Warrior, Wizard (héritent de GameCharacter)
 ├── DAO/            → DataBaseConnection, GameCharacterDao
 ├── equipement/     → OffensiveEquipment, DefensiveEquipment, Sword, Spell...
@@ -134,7 +134,7 @@ Choisissez votre personnage :
 
 ---
 
-## 👩‍💻 Auteure
+## 👩‍💻 Auteur
 
 **Sylvie Bal** — Développeuse d'applications Java/Web en formation (Bac+3 CDA)
 

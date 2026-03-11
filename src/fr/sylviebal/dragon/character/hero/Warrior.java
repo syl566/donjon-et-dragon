@@ -28,7 +28,7 @@ public class Warrior extends GameCharacter {
                 + " ! attaque : " + totalAttack);
     }
 
-    public void setWeaponClub(WeaponClub weaponClub) {
+    public void setWeaponClub(WeaponClub weaponClub) { //setter méthode pour modifier une variable
         this.weaponClub = weaponClub;
 
     }
@@ -44,7 +44,7 @@ public class Warrior extends GameCharacter {
     }
 
     @Override
-    public String toString() {
+    public String toString() { // sert a décrire un objet sous forme de texte
         String armed = "";
         if (weaponClub != null) armed += " 🪓 " + weaponClub.getName();
         if (sword != null) armed += " ⚔️ " + sword.getName();

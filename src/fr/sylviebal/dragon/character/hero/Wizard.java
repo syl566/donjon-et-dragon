@@ -1,9 +1,7 @@
 package fr.sylviebal.dragon.character.hero;
 
-
 import fr.sylviebal.dragon.character.game.GameCharacter;
 import fr.sylviebal.dragon.equipement.Spell;
-
 
 public class Wizard extends GameCharacter {
 

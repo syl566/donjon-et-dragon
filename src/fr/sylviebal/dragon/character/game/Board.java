@@ -20,22 +20,22 @@ public class Board {
         }
 
         // 🐉 Dragons (cases 45, 52, 56, 62)
-        cells.set(45, new Dragon("Dragon"));
-        cells.set(52, new Dragon("Dragon"));
-        cells.set(56, new Dragon("dragon"));
-        cells.set(62, new Dragon("dragon"));
+        cells.set(45, new Dragon("Ryuu"));
+        cells.set(52, new Dragon("Ryuu"));
+        cells.set(56, new Dragon("Ryuu"));
+        cells.set(62, new Dragon("Ryuu"));
 
         // 🧙 Sorciers (cases 10, 20, 25, 32, 35, 36, 37, 40, 44, 47)
-        cells.set(10,new Witch("MERLIN"));
-        cells.set(20,new Witch("MERLIN"));
-        cells.set(25,new Witch("MERLIN"));
-        cells.set(32, new Witch("MERLIN"));
-        cells.set(35, new Witch("MERLIN"));
-        cells.set(36, new Witch("MERLIN"));
-        cells.set(37, new Witch("MERLIN"));
-        cells.set(40, new Witch("MERLIN"));
-        cells.set(44, new Witch("MERLIN"));
-        cells.set(47, new Witch("MERLIN"));
+        cells.set(10,new Witch("Gargamel"));
+        cells.set(20,new Witch("Gargamel"));
+        cells.set(25,new Witch("Gargamel"));
+        cells.set(32, new Witch("Ragnar"));
+        cells.set(35, new Witch("Ragnar"));
+        cells.set(36, new Witch("Ragnar"));
+        cells.set(37, new Witch("Thorgrim "));
+        cells.set(40, new Witch("Thorgrim "));
+        cells.set(44, new Witch("Thorgrim "));
+        cells.set(47, new Witch("Thorgrim "));
 
         // 👺 Gobelins (cases 3, 6, 9, 12, 15, 18, 21, 24, 27, 30)
         cells.set(3, new Goblin("Gobelin"));
