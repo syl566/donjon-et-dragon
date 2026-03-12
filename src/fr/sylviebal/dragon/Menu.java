@@ -15,6 +15,7 @@ public class Menu {
         System.out.println("=================================");
     }
 
+
     public boolean mainMenu() {
         while (true) {
             System.out.println("""
@@ -77,4 +78,5 @@ public class Menu {
         System.out.println("Entrer un nom");
         return scanner.nextLine();
     }
+
 }

@@ -14,16 +14,6 @@ public abstract class EnemyCell extends Cell {
         this.attackPower = attackPower;
     }
 
-    public boolean isAlive() {
-        return life > 0;
-    }
-
-    public void takeDamage(int damage) {
-        this.life -= damage;
-        if (this.life < 0) this.life = 0;
-    }
-
-
     @Override
     public void interact(GameCharacter character) {
         Story.onEnemyEncounter(this.name);
@@ -34,7 +24,7 @@ public abstract class EnemyCell extends Cell {
         }
 
         this.takeDamage(playerAttack);
-        System.out.println(" " + character.getName() + " Il frappe " + name + " avec " + playerAttack + " !");
+        System.out.println(" " + character.getName() + " frappe " + name + " avec " + playerAttack + " puissance d'attaque !");
         System.out.println("💔 " + name + " : ❤️ " + this.life + " restant");
 
         character.setAttackPower(character.getAttackPower() - 1);
@@ -46,6 +36,15 @@ public abstract class EnemyCell extends Cell {
             System.out.println("💥 " + name + " réplique et s'enfuit !");
             character.takeDamage(this.attackPower);
         }
+    }
+
+    public boolean isAlive() {
+        return life > 0;
+    }
+
+    public void takeDamage(int damage) {
+        this.life -= damage;
+        if (this.life < 0) this.life = 0;
     }
 }
 

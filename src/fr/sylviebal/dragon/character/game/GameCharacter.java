@@ -23,9 +23,6 @@ public abstract class GameCharacter {
         this.attackBonus = attackBonus;
     }
 
-    // Méthode abstraite
-    public abstract void attack();
-
     // Getters
     public int getId() { // <- getter pour id
         return id;
@@ -78,6 +75,8 @@ public abstract class GameCharacter {
         this.offensiveEquipment = offensiveEquipment;
     }
 
+    // Méthode abstraite
+    public abstract void attack();
 
     public void takeDamage(int damage) {
         this.life -= damage;

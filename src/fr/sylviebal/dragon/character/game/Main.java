@@ -4,13 +4,14 @@ import fr.sylviebal.dragon.DAO.GameCharacterDao;
 import fr.sylviebal.dragon.Menu;
 import fr.sylviebal.dragon.character.hero.Warrior;
 import fr.sylviebal.dragon.character.hero.Wizard;
+import fr.sylviebal.dragon.outofboardexception.OutOfBoardException;
 
 import java.sql.SQLException;
 import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) throws SQLException, OutOfBoardException {
         Scanner scanner = new Scanner(System.in);
         Menu menu = new Menu(scanner);
 
@@ -26,9 +27,9 @@ public class Main {
 
         GameCharacter hero;
         if (choice == 1) {
-            hero = new Warrior("");
+            hero = new Warrior(menu.getName());
         } else {
-            hero = new Wizard("");
+            hero = new Wizard(menu.getName());
         }
 
         Story.characterIntro(hero);
@@ -40,6 +41,7 @@ public class Main {
             Story.onVictory(hero);
         } else {
             Story.onGameOver(hero);
+            System.exit(0);
         }
     }
 

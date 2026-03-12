@@ -8,7 +8,7 @@ public class EmptyCell extends Cell {
     @Override
     public void interact(GameCharacter character) {
 
-        System.out.println(" \uD83D\uDD73\uFE0F Il ne se passe rien sur cette case. Repose toi de ce moment de répis !!");
+        System.out.println(" \uD83D\uDD73\uFE0F Il ne se passe rien sur cette case. Profite bien de ce moment de répis !!");
     }
 
     public String toString() {

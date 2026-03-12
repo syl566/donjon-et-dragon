@@ -12,16 +12,6 @@ public class Wizard extends GameCharacter {
         super(name, "Wizard", 6, 8, 7);
     }
 
-    public void setFireBallSpell(Spell fireBallSpell) {
-        this.fireBallSpell = fireBallSpell;
-
-    }
-
-    public void setLightningSpell(Spell lightningSpell) {
-        this.lightningSpell = lightningSpell;
-
-    }
-
     @Override
     public void attack() {
         int totalAttack = getAttackPower();
@@ -36,17 +26,27 @@ public class Wizard extends GameCharacter {
         }
     }
 
-    public void pickUp(int powerUp, int bonusUp) {
-        setAttackPower(getAttackPower() + powerUp);
-        setAttackBonus(getAttackBonus() + bonusUp);
-
-    }
-
     @Override
     public String toString() {
         String sorts = "";
         if (fireBallSpell != null) sorts += " 🔥 " + fireBallSpell.getName();
         if (lightningSpell != null) sorts += " ⚡ " + lightningSpell.getName();
         return "🧙🏻‍♂️ " + super.toString() + (sorts.isEmpty() ? "" : " | Sorts : " + sorts);
+    }
+
+    public void setFireBallSpell(Spell fireBallSpell) {
+        this.fireBallSpell = fireBallSpell;
+
+    }
+
+    public void setLightningSpell(Spell lightningSpell) {
+        this.lightningSpell = lightningSpell;
+
+    }
+
+    public void pickUp(int powerUp, int bonusUp) {
+        setAttackPower(getAttackPower() + powerUp);
+        setAttackBonus(getAttackBonus() + bonusUp);
+
     }
 }

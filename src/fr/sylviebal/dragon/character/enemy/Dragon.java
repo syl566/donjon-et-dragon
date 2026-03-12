@@ -26,7 +26,6 @@ public class Dragon extends EnemyCell {
             Story.onEnemyEncounter(this.name);
         }
 
-        // ✅ Combat
         int playerAttack = character.getAttackPower();
         if (character.getOffensiveEquipment() != null) {
             playerAttack += character.getOffensiveEquipment().getOffensivePower();

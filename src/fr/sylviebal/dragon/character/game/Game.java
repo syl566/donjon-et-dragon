@@ -1,8 +1,11 @@
 package fr.sylviebal.dragon.character.game;
 
+import fr.sylviebal.dragon.outofboardexception.OutOfBoardException;
+
 import java.util.Scanner;
 
 public class Game {
+
     private GameCharacter gameCharacter;
     private int playerPosition;
     private Board board;
@@ -16,7 +19,7 @@ public class Game {
 
     }
 
-    public boolean playTurn() {
+    public void playTurn() throws OutOfBoardException {
 
         System.out.println("Appuyez sur Entrée pour lancer le dé");
         scanner.nextLine();
@@ -30,11 +33,10 @@ public class Game {
         Cell currentCell = board.getCell(board.getPlayerPosition()); //récupere la case sur laquelle le joueur arrive
         currentCell.interact(gameCharacter);
         System.out.println(gameCharacter); //AFFICHE VIE ET ATTAQUE
-        return false;
+
     }
 
     public boolean isFinished() {
-        // fin si arrivé à la dernière case OU si mort
         return board.getPlayerPosition() == board.size() - 1
                 || !gameCharacter.isAlive();
     }

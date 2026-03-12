@@ -16,7 +16,7 @@ public class DataBaseConnection {
             try {
                 Properties props = new Properties();
 
-                // ✅ Remplace FileInputStream par ClassLoader
+           
                 InputStream input = DataBaseConnection.class
                         .getClassLoader()
                         .getResourceAsStream("config.example.properties");

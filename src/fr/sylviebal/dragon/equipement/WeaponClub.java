@@ -7,7 +7,7 @@ public class WeaponClub extends OffensiveEquipment {
 
     @Override
     public void offensive() {
-        System.out.println("\uD83D\uDDE1\uFE0F" + getName() + " attaque avec une épée" + getOffensivePower());
+        System.out.println(" \uD83D\uDDE1\uFE0F " + getName() + " attaque avec une épée" + getOffensivePower());
     }
 }
 

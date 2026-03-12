@@ -3,6 +3,7 @@ package fr.sylviebal.dragon.character.game;
 import fr.sylviebal.dragon.character.enemy.Dragon;
 import fr.sylviebal.dragon.character.enemy.Goblin;
 import fr.sylviebal.dragon.character.enemy.Witch;
+import fr.sylviebal.dragon.outofboardexception.OutOfBoardException;
 
 
 import java.util.ArrayList;
@@ -26,9 +27,9 @@ public class Board {
         cells.set(62, new Dragon("Ryuu"));
 
         // 🧙 Sorciers (cases 10, 20, 25, 32, 35, 36, 37, 40, 44, 47)
-        cells.set(10,new Witch("Gargamel"));
-        cells.set(20,new Witch("Gargamel"));
-        cells.set(25,new Witch("Gargamel"));
+        cells.set(10, new Witch("Gargamel"));
+        cells.set(20, new Witch("Gargamel"));
+        cells.set(25, new Witch("Gargamel"));
         cells.set(32, new Witch("Ragnar"));
         cells.set(35, new Witch("Ragnar"));
         cells.set(36, new Witch("Ragnar"));
@@ -41,20 +42,20 @@ public class Board {
         cells.set(3, new Goblin("Gobelin"));
         cells.set(6, new Goblin("Gobelin"));
         cells.set(9, new Goblin("Gobelin"));
-        cells.set(12,new Goblin("Gobelin"));
-        cells.set(15,new Goblin("Gobelin"));
-        cells.set(18,new Goblin("Gobelin"));
+        cells.set(12, new Goblin("Gobelin"));
+        cells.set(15, new Goblin("Gobelin"));
+        cells.set(18, new Goblin("Gobelin"));
         cells.set(21, new Goblin("Gobelin"));
         cells.set(24, new Goblin("Gobelin"));
         cells.set(27, new Goblin("Gobelin"));
         cells.set(30, new Goblin("Gobelin"));
 
         // 🪓 Massues (cases 2, 5, 11, 22, 38)
-        cells.set(2,new WeaponClubCell());
-        cells.set(5,new WeaponClubCell());
-        cells.set(11,new WeaponClubCell());
-        cells.set(22,new WeaponClubCell());
-        cells.set(38,new WeaponClubCell());
+        cells.set(2, new WeaponClubCell());
+        cells.set(5, new WeaponClubCell());
+        cells.set(11, new WeaponClubCell());
+        cells.set(22, new WeaponClubCell());
+        cells.set(38, new WeaponClubCell());
 
         // ⚔️ Epées (cases 19, 26, 42, 53)
         cells.set(19, new SwordCell());
@@ -70,8 +71,8 @@ public class Board {
         cells.set(23, new LightningSpell());
 
         // 🔥 Sorts boule de feu (cases 48, 49)
-        cells.set(48,new FireBallSpell());
-        cells.set(49,new FireBallSpell());
+        cells.set(48, new FireBallSpell());
+        cells.set(49, new FireBallSpell());
 
         // 🧪 Potions standards (cases 7, 13, 31, 33, 39, 43)
         cells.set(7, new Potion());
@@ -86,24 +87,26 @@ public class Board {
         cells.set(41, new GreatPotion());
     }
 
-    public Cell getCell(int position) {
-        return cells.get(position);
+    public void moveCharacter(int move) throws OutOfBoardException {
+        int newPosition = playerPosition + move;
+
+        if (newPosition >= cells.size() || newPosition < 0) {
+            throw new OutOfBoardException(" Déplacement impossible, Tu sors du plateau de jeu !");
+        }
+        playerPosition = newPosition;
+        System.out.println("Le joueur est maintenant à la position " + playerPosition);
     }
 
     public int size() {
         return cells.size();
     }
 
-    public int getPlayerPosition() {
-        return playerPosition;
+    public Cell getCell(int position) {
+        return cells.get(position);
     }
 
-    public void moveCharacter(int move) {
-        playerPosition += move;
-        if (playerPosition >= cells.size()) {
-            playerPosition = cells.size() - 1;
-        }
-
+    public int getPlayerPosition() {
+        return playerPosition;
     }
 
     public void print(GameCharacter character) {  //prend le personnage en paramètre
@@ -113,7 +116,11 @@ public class Board {
             } else {
                 System.out.print(" ◻ ");
             }
+            System.out.println();
         }
-        System.out.println();
     }
 }
+
+
+
+
