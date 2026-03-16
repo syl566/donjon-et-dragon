@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Dragon extends EnemyCell {
     private boolean isFinalBoss;
-    private Scanner scanner = new Scanner(System.in);
+    private final Scanner scanner = new Scanner(System.in);
 
     public Dragon(String name) {
         super(name, 15, 4);

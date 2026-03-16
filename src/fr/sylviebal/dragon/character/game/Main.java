@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) throws SQLException, OutOfBoardException {
+   public static void main(String[] args) throws SQLException, OutOfBoardException {
         Scanner scanner = new Scanner(System.in);
         Menu menu = new Menu(scanner);
 
