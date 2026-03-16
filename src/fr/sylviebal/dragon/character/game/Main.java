@@ -4,42 +4,55 @@ import fr.sylviebal.dragon.DAO.GameCharacterDao;
 import fr.sylviebal.dragon.Menu;
 import fr.sylviebal.dragon.character.hero.Warrior;
 import fr.sylviebal.dragon.character.hero.Wizard;
+import fr.sylviebal.dragon.outofboardexception.OutOfBoardException;
 
 import java.sql.SQLException;
 import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) throws SQLException, OutOfBoardException {
+        Scanner scanner = new Scanner(System.in);
+        Menu menu = new Menu(scanner);
 
+        Story.introduction();
+        menu.displayWelcomeMessage();
+
+        if (menu.mainMenu()) {
+            System.out.println("👋 Au revoir !");
+            return;
+        }
         // créer la dao
         int choice = getChoice();
 
         GameCharacter hero;
         if (choice == 1) {
-            hero = new Warrior("Guerrier");
+            hero = new Warrior(menu.getName());
         } else {
-            hero = new Wizard("Mage");
+            hero = new Wizard(menu.getName());
         }
+
+        Story.characterIntro(hero);
         Game game = new Game(hero);
         while (!game.isFinished()) {
             game.playTurn();
         }
         if (hero.isAlive()) {
-            System.out.println("🏆 Félicitations " + hero.getName() + " ! Tu as terminé  donjon_et_dragon !");
+            Story. onFinalBossVictory(hero);
         } else {
-            System.out.println("💀 Game Over ! " + hero.getName() + " est mort...");
+            Story.onGameOver(hero);
+            System.exit(0);
         }
     }
 
     private static int getChoice() throws SQLException {
         GameCharacterDao dao = new GameCharacterDao();
 
-        // créer un personnage
-        GameCharacter hero = new Warrior("JEAN");
+        /* créer un personnage*/
+        GameCharacter hero = new Warrior("");
         dao.createHero(hero);
 
-        // affiche tous les personnages
+        /*affiche tous les personnages*/
         dao.getHeroes();
 
         Scanner scanner = new Scanner(System.in);   //création du scanner

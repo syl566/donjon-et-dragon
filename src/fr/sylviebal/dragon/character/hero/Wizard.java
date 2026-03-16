@@ -1,31 +1,53 @@
 package fr.sylviebal.dragon.character.hero;
 
 import fr.sylviebal.dragon.character.game.GameCharacter;
+import fr.sylviebal.dragon.equipement.Spell;
 import fr.sylviebal.dragon.equipement.Sword;
 
 public class Wizard extends GameCharacter {
 
-    private Sword sword;
-    private int attackPower;
+    private Spell fireBallSpell;
+    private Spell lightningSpell;
 
     public Wizard(String name) {
-
-        super(name, "Wizard", 6, 8, 7); // super (..) appele le constructeur du parent
+        super(name, "Wizard", 6, 8, 7);
     }
 
     @Override
     public void attack() {
-        int attackPower = getAttackBonus();
-        if (sword != null) {
-            attackPower += sword.getOffensivePower();
+        int totalAttack = getAttackPower();
+
+        /* ajout du bonus de l'équipement offensif (sort éclair ou boule de feu)*/
+        if (getOffensiveEquipment() != null) {
+            totalAttack += getOffensiveEquipment().getOffensivePower();
+            System.out.println("✨ " + getName() + " utilise " + getOffensiveEquipment().getName()
+                    + " ! attaque totale : " + totalAttack);
+        } else {
+            System.out.println("🧙 ");
         }
-        System.out.println("" + getName() + "attaque avec "
-                + (sword != null ? sword.getName() : " boule de feu") +
-                " ! attaque : " + attackPower);
     }
 
     @Override
     public String toString() {
-        return "🧙🏻‍♂️ " + super.toString();
+        String sorts = "";
+        if (fireBallSpell != null) sorts += " 🔥 " + fireBallSpell.getName();
+        if (lightningSpell != null) sorts += " ⚡ " + lightningSpell.getName();
+        return "🧙🏻‍♂️ " + super.toString() + (sorts.isEmpty() ? "" : " | Sorts : " + sorts);
+    }
+
+    public void setFireBallSpell(Spell fireBallSpell) {
+        this.fireBallSpell = fireBallSpell;
+
+    }
+
+    public void setLightningSpell(Spell lightningSpell) {
+        this.lightningSpell = lightningSpell;
+
+    }
+
+    public void pickUp(int powerUp, int bonusUp) {
+        setAttackPower(getAttackPower() + powerUp);
+        setAttackBonus(getAttackBonus() + bonusUp);
+
     }
 }

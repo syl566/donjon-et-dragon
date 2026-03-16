@@ -11,6 +11,12 @@ public abstract class OffensiveEquipment {
         this.offensivePower = offensivePower;
     }
 
+    @Override
+    public String toString() {
+        return type + " " + name +
+                " | ⚔️ Offensive: " + offensivePower;
+    }
+
     public abstract void offensive();
 
     public String getName() {
@@ -21,9 +27,4 @@ public abstract class OffensiveEquipment {
         return offensivePower;
     }
 
-    @Override
-    public String toString() {
-        return type + " " + name +
-                " | ⚔️ Offensive: " + offensivePower;
-    }
 }
