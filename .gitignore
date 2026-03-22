@@ -3,6 +3,17 @@ out/
 !**/src/main/**/out/
 !**/src/test/**/out/
 .kotlin
+# Fichier de configuration sensible
+src/fr/sylviebal/dragon/character/DAO/DataBaseConnection.java
+
+# Fichiers IntelliJ
+.idea/
+*.iml
+
+# Fichiers compilés
+out/
+target/
+*.class
 
 ### Eclipse ###
 .apt_generated
