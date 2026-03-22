@@ -9,10 +9,11 @@ public class WeaponClubCell extends BonusCell {
         if (character instanceof Warrior) {
             WeaponClub weaponClub = new WeaponClub("massue");
             character.setOffensiveEquipment(weaponClub);
-            Story.onBonusFound("Massue");
+
             ((Warrior) character).pickUp(3);
         } else {
             System.out.println("Tu vois une massue");
+            Story.onBonusFound("Massue");
         }
     }
 

@@ -24,9 +24,9 @@ public class Story {
     }
 
     public static void characterIntro(GameCharacter character) {
-        System.out.println("⚡ " + character.getName() + " accepte la quête !");
+        System.out.println(" "+ character.getName() + " accepte la quête !");
         if (character instanceof Warrior) {
-            System.out.println("🗡️  En tant que Warrior, il brandit son épée et");
+            System.out.println(" En tant que Warrior, il brandit son épée 🗡️ et");
             System.out.println("   pénètre dans le donjon sans crainte...");
         } else if (character instanceof Wizard) {
             System.out.println("✨ En tant que Wizard, il murmure un sort de   ");

@@ -1,6 +1,5 @@
 package fr.sylviebal.dragon.character.enemy;
 
-import fr.sylviebal.dragon.character.game.Cell;
 import fr.sylviebal.dragon.character.game.EnemyCell;
 import fr.sylviebal.dragon.character.game.GameCharacter;
 import fr.sylviebal.dragon.character.game.Story;
@@ -35,6 +34,7 @@ public class Dragon extends EnemyCell {
         this.takeDamage(playerAttack);
         System.out.println("⚔️ " + character.getName() + " frappe " + name + " avec " + playerAttack + " !");
         System.out.println("💔 " + name + " : ❤️ " + this.life + " restant");
+        character.setAttackPower(character.getAttackPower() - 3);
 
         if (!this.isAlive()) {
             Story.onFinalBossVictory(character); // ✅ narration victoire boss

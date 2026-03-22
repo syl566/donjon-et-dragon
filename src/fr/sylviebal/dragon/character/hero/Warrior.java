@@ -1,39 +1,106 @@
 package fr.sylviebal.dragon.character.hero;
 
 import fr.sylviebal.dragon.character.game.GameCharacter;
+import fr.sylviebal.dragon.equipement.Sword;
 import fr.sylviebal.dragon.equipement.WeaponClub;
 
+/**
+ * Représente un Guerrier dans le jeu Donjon et Dragon.
+ * Le Warrior est un personnage spécialisé dans le combat au corps à corps.
+ * Il peut équiper une Massue et une Épée pour augmenter sa puissance d'attaque.
+ *
+ * <p>Statistiques de base :
+ * <ul>
+ *   <li>Vie : 5</li>
+ *   <li>Attaque : 10</li>
+ *   <li>Bonus d'attaque : 5</li>
+ * </ul>
+ *
+ * @author Sylvie Bal
+ * @version 1.0
+ * @see GameCharacter
+ * @see WeaponClub
+ * @see Sword
+ */
 public class Warrior extends GameCharacter {
 
+    /** Massue équipée par le Warrior, null si non équipée. */
     private WeaponClub weaponClub;
-    private int attackPower;
 
+    /** Épée équipée par le Warrior, null si non équipée. */
+    private Sword sword;
+
+    /**
+     * Crée un Warrior avec le nom donné et des statistiques prédéfinies.
+     *
+     * @param name le nom du Warrior choisi par le joueur
+     */
     public Warrior(String name) {
         super(name, "Warrior", 5, 10, 5);
     }
 
+    /**
+     * Retourne l'épée actuellement équipée par le Warrior.
+     *
+     * @return l'épée équipée, ou null si aucune épée n'est équipée
+     */
+    public Sword getSword() {
+        return sword;
+    }
+
+    /**
+     * Retourne la massue actuellement équipée par le Warrior.
+     *
+     * @return la massue équipée, ou null si aucune massue n'est équipée
+     */
+    public WeaponClub getWeaponClub() {
+        return weaponClub;
+    }
+
+    /**
+     * Effectue une attaque en utilisant le bonus d'attaque
+     * et la puissance de la Massue si elle est équipée.
+     * Affiche le nom de l'arme utilisée ou "ses épées" si aucune arme n'est équipée.
+     */
     @Override
     public void attack() {
         int attackPower = getAttackBonus();
         if (weaponClub != null) {
             attackPower += weaponClub.getOffensivePower();
         }
-        System.out.println("⚔️ " + getName() + " attaque avec "
+        System.out.println(" " + getName() + " attaque avec "
                 + (weaponClub != null ? weaponClub.getName() : "ses épées")
-                + " ! attaque : "+ attackPower);
+                + " ! attaque : " + attackPower);
     }
 
+    /**
+     * Augmente la puissance d'attaque du Warrior
+     * lors de la récupération d'un équipement ou d'un bonus.
+     * La puissance d'attaque ne peut pas descendre en dessous de 0.
+     *
+     * @param up points ajoutés à la puissance d'attaque
+     */
     public void pickUp(int up) {
-            this.attackPower += up;
-            if (this.attackPower < 0) this.attackPower = 0;
-        }
-
-        @Override
-        public String toString () {
-            return " \uD83E\uDDDD\uD83C\uDFFD " + super.toString() ;
-        }
+        setAttackPower(getAttackPower() + up);
+        if (getAttackPower() < 0) setAttackPower(0);
     }
 
+    /**
+     * Retourne une représentation textuelle du Warrior
+     * incluant ses statistiques et les armes actuellement équipées.
+     *
+     * @return une chaîne affichant l'emoji, le type, le nom, la vie,
+     *         l'attaque et les armes équipées
+     */
+    @Override
+    public String toString() {
+        String armes = "";
+        if (weaponClub != null) armes += " 🪓 " + weaponClub.getName();
+        if (sword != null) armes += " ⚔️ " + sword.getName();
+        return "🧝🏽 " + super.toString()
+                + (armes.isEmpty() ? "" : " | Armes : " + armes);
+    }
+}
 
 
 
