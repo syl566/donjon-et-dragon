@@ -23,7 +23,7 @@ public class Board {
         cells.set(45, new Dragon("Dragon"));
         cells.set(52, new Dragon("Dragon"));
         cells.set(56, new Dragon("dragon"));
-        cells.set(62, new Dragon("dragon"));
+        cells.set(64, new Dragon("dragon"));
 
         // 🧙 Sorciers (cases 10, 20, 25, 32, 35, 36, 37, 40, 44, 47)
         cells.set(10,new Witch("MERLIN"));

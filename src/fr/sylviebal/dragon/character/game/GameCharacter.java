@@ -1,10 +1,12 @@
 package fr.sylviebal.dragon.character.game;
 
 import fr.sylviebal.dragon.equipement.OffensiveEquipment;
+import fr.sylviebal.dragon.equipement.Spell;
 
 //class abstrait
 public abstract class GameCharacter {
 
+    protected Spell fireBallSpell;
     // Attributs
     private int id; // <- ajouté pour identifier le personnage en base
     private String name;

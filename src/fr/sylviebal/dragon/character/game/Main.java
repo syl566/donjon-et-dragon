@@ -11,24 +11,35 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) throws SQLException {
+        Scanner scanner = new Scanner(System.in);
+        Menu menu = new Menu(scanner);
 
-        // créer la dao
-        int choice = getChoice();
+        Story.introduction();
+        menu.displayWelcomeMessage();
+        menu.displayCharacters();
+        int choice = menu.getCharacterChoice();
+        menu.displayCharacterSelected(choice);
+        menu.getName();
 
-        GameCharacter hero;
+        GameCharacter character;
         if (choice == 1) {
-            hero = new Warrior("Guerrier");
+            character = new Warrior("Guerrier");
         } else {
-            hero = new Wizard("Mage");
+            character = new Wizard("Mage");
         }
-        Game game = new Game(hero);
+
+        Story.characterIntro(character); // intro du personnage
+
+        Game game = new Game(character);
         while (!game.isFinished()) {
             game.playTurn();
         }
-        if (hero.isAlive()) {
-            System.out.println("🏆 Félicitations " + hero.getName() + " ! Tu as terminé  donjon_et_dragon !");
+
+        // message de fin selon résultat
+        if (character.isAlive()) {
+            Story.onVictory(character);
         } else {
-            System.out.println("💀 Game Over ! " + hero.getName() + " est mort...");
+            Story.onGameOver(character);
         }
     }
 
@@ -36,7 +47,7 @@ public class Main {
         GameCharacterDao dao = new GameCharacterDao();
 
         // créer un personnage
-        GameCharacter hero = new Warrior("JEAN");
+        GameCharacter hero = new Warrior("");
         dao.createHero(hero);
 
         // affiche tous les personnages

@@ -25,6 +25,8 @@ public abstract class EnemyCell extends Cell {
 
     @Override
     public void interact(GameCharacter character) {
+        Story.onEnemyEncounter(this.name);
+
         int playerAttack = character.getAttackPower();
         System.out.println("⚔️ Combat contre " + name + " ! ❤️ " + life);
 

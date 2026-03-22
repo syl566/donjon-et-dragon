@@ -3,17 +3,24 @@ out/
 !**/src/main/**/out/
 !**/src/test/**/out/
 .kotlin
-# Fichier de configuration sensible
-src/fr/sylviebal/dragon/character/DAO/DataBaseConnection.java
+### Fichiers sensibles ###
+src/fr/sylviebal/dragon/DAO/DataBaseConnection.java
 
-# Fichiers IntelliJ
-.idea/
-*.iml
+### Fichiers de configuration avec mots de passe ###
+*.env
+*.properties
+config.java
+application.properties
 
-# Fichiers compilés
-out/
-target/
-*.class
+### Clés et certificats ###
+*.key
+*.pem
+*.p12
+*.jks
+
+### Logs (peuvent contenir des infos sensibles) ###
+*.log
+logs/
 
 ### Eclipse ###
 .apt_generated
