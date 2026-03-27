@@ -6,7 +6,11 @@
 
 ## 📖 Description
 
+<<<<<<< HEAD
 Donjon et Dragon est un jeu de plateau en console où un héros doit traverser 65 cases remplies de monstres et de bonus pour sauver le royaume de Valdris.
+=======
+Donjon et Dragon est un jeu de plateau en console où un héros doit traverser 64 cases remplies de monstres et de bonus pour sauver le royaume de Valdris.
+>>>>>>> e48b1ea2ff8fa48a612540ec3dfd40402a2d1f55
 
 Le joueur choisit son personnage (**Warrior** ou **Wizard**), lance un dé à chaque tour et se déplace sur le plateau. Selon la case sur laquelle il arrive, il combat un ennemi ou récupère un bonus.
 
@@ -14,13 +18,21 @@ Le joueur choisit son personnage (**Warrior** ou **Wizard**), lance un dé à ch
 
 ## 🎮 Fonctionnalités
 
+<<<<<<< HEAD
 - 🎲 Déplacement aléatoire sur un plateau de 65 cases
+=======
+- 🎲 Déplacement aléatoire sur un plateau de 64 cases
+>>>>>>> e48b1ea2ff8fa48a612540ec3dfd40402a2d1f55
 - ⚔️ Système de combat par échange (joueur frappe → ennemi réplique et s'enfuit)
 - 🧙 2 personnages jouables : Warrior et Wizard
 - 👺 3 types d'ennemis : Dragon, Gobelin, Sorcier
 - 🎁 6 types de bonus : Potion, Grande Potion, Épée, Massue, Sort Éclair, Boule de Feu
 - 💾 Sauvegarde des personnages en base de données MySQL
+<<<<<<< HEAD
 - 📖 Narration et animations ASCII à chaque événement
+=======
+- 📖 Narration  à chaque événement
+>>>>>>> e48b1ea2ff8fa48a612540ec3dfd40402a2d1f55
 
 ---
 
@@ -63,7 +75,11 @@ OffensiveEquipment (abstract)
 ### Prérequis
 
 - Java 17+
+<<<<<<< HEAD
 - MySQL 8+
+=======
+- Maria DB
+>>>>>>> e48b1ea2ff8fa48a612540ec3dfd40402a2d1f55
 - IntelliJ IDEA (recommandé)
 
 ### Étapes
@@ -112,6 +128,7 @@ Choisissez votre personnage :
 
 ## 🛠️ Technologies utilisées
 
+<<<<<<< HEAD
 | Technologie | Usage |
 |-------------|-------|
 | Java 17 | Langage principal |
@@ -119,6 +136,15 @@ Choisissez votre personnage :
 | MySQL Connector J | Connexion JDBC |
 | IntelliJ IDEA | IDE |
 | Git | Versioning |
+=======
+| Technologie   | Usage |
+|---------------|-------|
+| Java 17       | Langage principal |
+| MariaDB       | Base de données |
+|               | Connexion JDBC |
+| IntelliJ IDEA | IDE |
+| Git           | Versioning |
+>>>>>>> e48b1ea2ff8fa48a612540ec3dfd40402a2d1f55
 
 ---
 
@@ -145,4 +171,8 @@ Choisissez votre personnage :
 
 ## 📄 Licence
 
+<<<<<<< HEAD
 Projet réalisé dans le cadre de la formation CDA — Campus Numérique in the Alps, Grenoble 2025-2026.
+=======
+Projet réalisé dans le cadre de la formation CDA — Campus Numérique in the Alps, Grenoble 2025-2026.
+>>>>>>> e48b1ea2ff8fa48a612540ec3dfd40402a2d1f55

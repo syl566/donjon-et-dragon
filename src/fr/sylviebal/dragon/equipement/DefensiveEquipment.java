@@ -19,6 +19,7 @@ public  abstract class  DefensiveEquipment {
         return defensePower;
     }
 
+
     @Override
     public String toString() {
         return type + " " + name +

@@ -24,14 +24,14 @@ public class Story {
         System.out.println("   le royaume et se cache au fond d'un donjon     ");
         System.out.println("   rempli de monstres terrifiants...              ");
         System.out.println();
-        System.out.println("   Un héros courageux doit traverser 64 cases     ");
+        System.out.println("   Un héros courageux doit traverser 65 cases     ");
         System.out.println("   de dangers pour récupérer le cristal !         ");
         System.out.println("=================================================");
         System.out.println();
     }
 
     public static void characterIntro(GameCharacter character) {
-        System.out.println("⚡ " + character.getName() + " accepte la quête !");
+        System.out.println(" "+ character.getName() + " accepte la quête !");
         if (character instanceof Warrior) {
             System.out.println(" En tant que Warrior, il brandit son épée 🗡️ et");
             System.out.println("   pénètre dans le donjon sans crainte...");
