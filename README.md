@@ -122,7 +122,7 @@ Choisissez votre personnage :
 
 ## 🛠️ Technologies utilisées
 
-<<<<<<< HEAD
+
 | Technologie | Usage |
 |-------------|-------|
 | Java 17 | Langage principal |
