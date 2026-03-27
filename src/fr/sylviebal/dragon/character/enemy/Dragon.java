@@ -3,43 +3,40 @@ package fr.sylviebal.dragon.character.enemy;
 import fr.sylviebal.dragon.character.game.EnemyCell;
 import fr.sylviebal.dragon.character.game.GameCharacter;
 import fr.sylviebal.dragon.character.game.Story;
-<<<<<<< HEAD
-
 import java.util.Scanner;
 
 public class Dragon extends EnemyCell {
+
     private boolean isFinalBoss;
     private final Scanner scanner = new Scanner(System.in);
 
+    /**
+     * Crée un Dragon standard.
+     *
+     * @param name le nom du Dragon
+     */
     public Dragon(String name) {
         super(name, 15, 4);
         this.isFinalBoss = false;
     }
 
-    public void setFinalBoss(boolean isFinalBoss) {
-=======
-
-public class Dragon extends EnemyCell {
-    private boolean isFinalBoss;
-
-    public Dragon(String name) {
-        super(name, 20, 15);
-        this.isFinalBoss = false;
-    }
-
+    /**
+     * Crée un Dragon avec la possibilité d'être le boss final.
+     *
+     * @param name         le nom du Dragon
+     * @param isFinalBoss  true si c'est le boss final
+     */
     public Dragon(String name, boolean isFinalBoss) {
-        super(name, isFinalBoss ? 50 : 20, isFinalBoss ? 25 : 15); // ✅ boss plus fort
->>>>>>> e48b1ea2ff8fa48a612540ec3dfd40402a2d1f55
+        super(name, isFinalBoss ? 50 : 15, isFinalBoss ? 25 : 4);
         this.isFinalBoss = isFinalBoss;
     }
 
     @Override
     public void interact(GameCharacter character) {
         if (isFinalBoss) {
-<<<<<<< HEAD
             fightFinalBoss(character);
         } else {
-            // Combat simple existant (un seul échange)
+            //  Combat simple
             Story.onEnemyEncounter(this.name);
 
             int playerAttack = character.getAttackPower();
@@ -51,6 +48,9 @@ public class Dragon extends EnemyCell {
             System.out.println("⚔️ " + character.getName() + " frappe " + name + " avec " + playerAttack + " !");
             System.out.println("💔 " + name + " : ❤️ " + this.life + " restant");
 
+            //  Le combat épuise le joueur
+            character.setAttackPower(character.getAttackPower() - 3);
+
             if (!this.isAlive()) {
                 System.out.println("💀 " + name + " est vaincu !");
             } else {
@@ -60,6 +60,12 @@ public class Dragon extends EnemyCell {
         }
     }
 
+    /**
+     * Gère le combat contre le boss final par rounds successifs.
+     * Le combat continue jusqu'à la mort du Dragon ou du joueur.
+     *
+     * @param character le personnage du joueur
+     */
     private void fightFinalBoss(GameCharacter character) {
         System.out.println("""
                 ================================================
@@ -77,7 +83,7 @@ public class Dragon extends EnemyCell {
             System.out.println("Appuyez sur Entrée pour attaquer...");
             scanner.nextLine();
 
-            /* Attaque du joueur*/
+            //  Attaque du joueur
             int playerAttack = character.getAttackPower();
             if (character.getOffensiveEquipment() != null) {
                 playerAttack += character.getOffensiveEquipment().getOffensivePower();
@@ -88,46 +94,18 @@ public class Dragon extends EnemyCell {
 
             if (!this.isAlive()) break;
 
-            /* Réplique du dragon*/
+            //  Réplique du Dragon
             System.out.println("🔥 " + name + " crache du feu !");
             character.takeDamage(this.attackPower);
 
             round++;
         }
 
-        /* Résultat du combat*/
+        //  Résultat du combat final
         if (!this.isAlive()) {
-            Story.onFinalBossVictory(character);  // ← à la place du println actuel
+            Story.onFinalBossVictory(character);
         } else {
-            Story.onGameOver(character);          // ← à la place du println actuel
+            Story.onGameOver(character);
         }
     }
 }
-=======
-            Story.onFinalBoss();
-        } else {
-            Story.onEnemyEncounter(this.name);
-        }
-
-        // ✅ Combat
-        int playerAttack = character.getAttackPower();
-        if (character.getOffensiveEquipment() != null) {
-            playerAttack += character.getOffensiveEquipment().getOffensivePower();
-        }
-
-        this.takeDamage(playerAttack);
-        System.out.println("⚔️ " + character.getName() + " frappe " + name + " avec " + playerAttack + " !");
-        System.out.println("💔 " + name + " : ❤️ " + this.life + " restant");
-        character.setAttackPower(character.getAttackPower() - 3);
-
-        if (!this.isAlive()) {
-            Story.onFinalBossVictory(character); // ✅ narration victoire boss
-        } else {
-            System.out.println("🔥 " + name + " réplique furieusement !");
-            character.takeDamage(this.attackPower);
-        }
-    }
-}
-
-
->>>>>>> e48b1ea2ff8fa48a612540ec3dfd40402a2d1f55

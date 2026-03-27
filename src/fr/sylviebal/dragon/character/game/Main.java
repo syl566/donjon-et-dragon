@@ -9,117 +9,67 @@ import fr.sylviebal.dragon.outofboardexception.OutOfBoardException;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-import java.sql.SQLException;
-import java.util.Scanner;
-
 public class Main {
 
-<<<<<<< HEAD
-   public static void main(String[] args) throws SQLException, OutOfBoardException {
+    public static void main(String[] args) throws SQLException, OutOfBoardException {
         Scanner scanner = new Scanner(System.in);
         Menu menu = new Menu(scanner);
 
         Story.introduction();
         menu.displayWelcomeMessage();
 
+        // Menu principal
         if (menu.mainMenu()) {
             System.out.println("👋 Au revoir !");
             return;
         }
-        // créer la dao
-        int choice = getChoice();
 
+        // Choix du personnage
+        menu.displayCharacters();
+        int choice = menu.getCharacterChoice();
+        menu.displayCharacterSelected(choice);
+
+        // Nom du personnage
+        String nom = menu.getName();
+
+        // Création du personnage
         GameCharacter hero;
         if (choice == 1) {
-            hero = new Warrior(menu.getName());
+            hero = new Warrior(nom);
         } else {
-            hero = new Wizard(menu.getName());
+            hero = new Wizard(nom);
+        }
+
+        // Sauvegarde en base de données
+        try {
+            GameCharacterDao dao = new GameCharacterDao();
+            dao.createHero(hero);
+            dao.getHeroes();
+        } catch (SQLException e) {
+            System.out.println("⚠️ Connexion base de données impossible, on continue sans sauvegarde.");
         }
 
         Story.characterIntro(hero);
+
+        // Boucle de jeu
         Game game = new Game(hero);
         while (!game.isFinished()) {
             game.playTurn();
         }
+
+        //  Fin de partie
         if (hero.isAlive()) {
-            Story. onFinalBossVictory(hero);
+            Story.onFinalBossVictory(hero);
+            Story.onVictory(hero);
         } else {
             Story.onGameOver(hero);
             System.exit(0);
         }
     }
-
-    private static int getChoice() throws SQLException {
-        GameCharacterDao dao = new GameCharacterDao();
-
-        /* créer un personnage*/
-        GameCharacter hero = new Warrior("");
-        dao.createHero(hero);
-
-        /*affiche tous les personnages*/
-        dao.getHeroes();
-
-        Scanner scanner = new Scanner(System.in);   //création du scanner
-        Menu menu = new Menu(scanner);
-=======
-    public static void main(String[] args) throws SQLException {
-        Scanner scanner = new Scanner(System.in);
-        Menu menu = new Menu(scanner);
->>>>>>> e48b1ea2ff8fa48a612540ec3dfd40402a2d1f55
-
-        Story.introduction();
-        menu.displayWelcomeMessage();
-        menu.mainMenu();
-        menu.displayCharacters();
-        int choice = menu.getCharacterChoice();
-        menu.displayCharacterSelected(choice);
-<<<<<<< HEAD
-        return choice;
-=======
-        menu.getName();
-
-        GameCharacter character;
-        if (choice == 1) {
-            character = new Warrior("Guerrier");
-        } else {
-            character = new Wizard("Mage");
-        }
-
-        Story.characterIntro(character); // intro du personnage
-
-        Game game = new Game(character);
-        while (!game.isFinished()) {
-            game.playTurn();
-        }
-
-        // message de fin selon résultat
-        if (character.isAlive()) {
-            Story.onVictory(character);
-        } else {
-            Story.onGameOver(character);
-        }
->>>>>>> e48b1ea2ff8fa48a612540ec3dfd40402a2d1f55
-    }
-
-    private static int getChoice() throws SQLException {
-        GameCharacterDao dao = new GameCharacterDao();
-
-        // créer un personnage
-        GameCharacter hero = new Warrior("");
-        dao.createHero(hero);
-
-        // affiche tous les personnages
-        dao.getHeroes();
-
-        Scanner scanner = new Scanner(System.in);   //création du scanner
-        Menu menu = new Menu(scanner);
-
-        menu.displayWelcomeMessage();
-        menu.mainMenu();
-        menu.displayCharacters();
-
-        int choice = menu.getCharacterChoice();
-        menu.displayCharacterSelected(choice);
-        return choice;
-    }
 }
+
+
+
+
+
+

@@ -24,11 +24,6 @@ import fr.sylviebal.dragon.equipement.WeaponClub;
  */
 public class Warrior extends GameCharacter {
 
-<<<<<<< HEAD
-    private WeaponClub weaponClub;
-    private Sword sword;
-
-=======
     /** Massue équipée par le Warrior, null si non équipée. */
     private WeaponClub weaponClub;
 
@@ -40,7 +35,6 @@ public class Warrior extends GameCharacter {
      *
      * @param name le nom du Warrior choisi par le joueur
      */
->>>>>>> e48b1ea2ff8fa48a612540ec3dfd40402a2d1f55
     public Warrior(String name) {
         super(name, "Warrior", 5, 10, 5);
     }
@@ -64,13 +58,29 @@ public class Warrior extends GameCharacter {
     }
 
     /**
-     * Effectue une attaque en utilisant le bonus d'attaque
-     * et la puissance de la Massue si elle est équipée.
-     * Affiche le nom de l'arme utilisée ou "ses épées" si aucune arme n'est équipée.
+     * Définit la massue équipée par le Warrior.
+     *
+     * @param weaponClub la massue à équiper
+     */
+    public void setWeaponClub(WeaponClub weaponClub) {
+        this.weaponClub = weaponClub;
+    }
+
+    /**
+     * Définit l'épée équipée par le Warrior.
+     *
+     * @param sword l'épée à équiper
+     */
+    public void setSword(Sword sword) {
+        this.sword = sword;
+    }
+
+    /**
+     * Effectue une attaque en utilisant la puissance d'attaque
+     * et les armes équipées si disponibles.
      */
     @Override
     public void attack() {
-<<<<<<< HEAD
         int totalAttack = getAttackPower();
         if (weaponClub != null) {
             totalAttack += weaponClub.getOffensivePower();
@@ -81,20 +91,10 @@ public class Warrior extends GameCharacter {
         System.out.println("⚔️ " + getName() + " attaque avec "
                 + (sword != null ? sword.getName() : weaponClub != null ? weaponClub.getName() : "son épée")
                 + " ! attaque : " + totalAttack);
-=======
-        int attackPower = getAttackBonus();
-        if (weaponClub != null) {
-            attackPower += weaponClub.getOffensivePower();
-        }
-        System.out.println(" " + getName() + " attaque avec "
-                + (weaponClub != null ? weaponClub.getName() : "ses épées")
-                + " ! attaque : " + attackPower);
->>>>>>> e48b1ea2ff8fa48a612540ec3dfd40402a2d1f55
     }
 
     /**
-     * Augmente la puissance d'attaque du Warrior
-     * lors de la récupération d'un équipement ou d'un bonus.
+     * Augmente la puissance d'attaque du Warrior.
      * La puissance d'attaque ne peut pas descendre en dessous de 0.
      *
      * @param up points ajoutés à la puissance d'attaque
@@ -109,44 +109,16 @@ public class Warrior extends GameCharacter {
      * incluant ses statistiques et les armes actuellement équipées.
      *
      * @return une chaîne affichant l'emoji, le type, le nom, la vie,
-     *         l'attaque et les armes équipées
+     * l'attaque et les armes équipées
      */
     @Override
-<<<<<<< HEAD
-    public String toString() { // sert a décrire un objet sous forme de texte
-        String armed = "";
-        if (weaponClub != null) armed += " 🪓 " + weaponClub.getName();
-        if (sword != null) armed += " ⚔️ " + sword.getName();
-
-        return " \uD83E\uDDDD\uD83C\uDFFD " + super.toString() + (armed.isEmpty() ? "" : " | Arme : " + armed);
-=======
     public String toString() {
         String armes = "";
         if (weaponClub != null) armes += " 🪓 " + weaponClub.getName();
         if (sword != null) armes += " ⚔️ " + sword.getName();
         return "🧝🏽 " + super.toString()
                 + (armes.isEmpty() ? "" : " | Armes : " + armes);
->>>>>>> e48b1ea2ff8fa48a612540ec3dfd40402a2d1f55
     }
-    public void setWeaponClub(WeaponClub weaponClub) { //setter méthode pour modifier une variable
-        this.weaponClub = weaponClub;
-
-    }
-
-    public void setSword(Sword sword) {
-        this.sword = sword;
-    }
-
-    public void pickUp(int powerUp, int bonusUp) {
-        setAttackPower(getAttackPower() + powerUp);
-        setAttackBonus(getAttackBonus() + bonusUp);
-    }
-
 }
 
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> e48b1ea2ff8fa48a612540ec3dfd40402a2d1f55

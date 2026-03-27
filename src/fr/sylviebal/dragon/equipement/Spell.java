@@ -1,10 +1,6 @@
 package fr.sylviebal.dragon.equipement;
 
-<<<<<<< HEAD
-public class Spell  extends  OffensiveEquipment{
-=======
 public class Spell extends OffensiveEquipment {
->>>>>>> e48b1ea2ff8fa48a612540ec3dfd40402a2d1f55
 
     public Spell(String name, int offensivePower) {
         super(name, "Sort", offensivePower);
@@ -20,7 +16,3 @@ public class Spell extends OffensiveEquipment {
         return "✨ Sort : " + getName();
     }
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> e48b1ea2ff8fa48a612540ec3dfd40402a2d1f55

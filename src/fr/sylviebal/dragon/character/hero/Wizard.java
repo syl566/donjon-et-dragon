@@ -2,10 +2,7 @@ package fr.sylviebal.dragon.character.hero;
 
 import fr.sylviebal.dragon.character.game.GameCharacter;
 import fr.sylviebal.dragon.equipement.Spell;
-<<<<<<< HEAD
-import fr.sylviebal.dragon.equipement.Sword;
-=======
->>>>>>> e48b1ea2ff8fa48a612540ec3dfd40402a2d1f55
+
 
 /**
  * Représente un Mage dans le jeu Donjon et Dragon.
@@ -26,15 +23,15 @@ import fr.sylviebal.dragon.equipement.Sword;
  */
 public class Wizard extends GameCharacter {
 
-<<<<<<< HEAD
-    private Spell fireBallSpell;
-    private Spell lightningSpell;
 
-=======
-    /** Sort Boule de Feu équipé par le Wizard, null si non équipé. */
+    /**
+     * Sort Boule de Feu équipé par le Wizard, null si non équipé.
+     */
     private Spell fireBallSpell;
 
-    /** Sort Éclair équipé par le Wizard, null si non équipé. */
+    /**
+     * Sort Éclair équipé par le Wizard, null si non équipé.
+     */
     private Spell lightningSpell;
 
     /**
@@ -42,7 +39,7 @@ public class Wizard extends GameCharacter {
      *
      * @param name le nom du Wizard choisi par le joueur
      */
->>>>>>> e48b1ea2ff8fa48a612540ec3dfd40402a2d1f55
+
     public Wizard(String name) {
         super(name, "Wizard", 6, 8, 7);
     }
@@ -66,6 +63,7 @@ public class Wizard extends GameCharacter {
     public void setLightningSpell(Spell lightningSpell) {
         this.lightningSpell = lightningSpell;
     }
+
     /**
      * Retourne le sort Boule de Feu actuellement équipé par le Wizard.
      *
@@ -83,6 +81,7 @@ public class Wizard extends GameCharacter {
     public Spell getLightningSpell() {
         return lightningSpell;
     }
+
     /**
      * Effectue une attaque en utilisant la puissance de base
      * et le bonus apporté par l'équipement offensif équipé.
@@ -91,23 +90,16 @@ public class Wizard extends GameCharacter {
     @Override
     public void attack() {
         int totalAttack = getAttackPower();
-<<<<<<< HEAD
+
 
         /* ajout du bonus de l'équipement offensif (sort éclair ou boule de feu)*/
-=======
->>>>>>> e48b1ea2ff8fa48a612540ec3dfd40402a2d1f55
         if (getOffensiveEquipment() != null) {
             totalAttack += getOffensiveEquipment().getOffensivePower();
             System.out.println("✨ " + getName() + " utilise " + getOffensiveEquipment().getName()
                     + " ! attaque totale : " + totalAttack);
         } else {
-<<<<<<< HEAD
-            System.out.println("🧙 ");
-        }
-    }
 
-=======
-            System.out.println(" ");
+            System.out.println("🧙 ");
         }
     }
 
@@ -115,8 +107,8 @@ public class Wizard extends GameCharacter {
      * Augmente les statistiques d'attaque du Wizard
      * lors de la récupération d'un sort ou d'un bonus.
      *
-     * @param powerUp  points ajoutés à la puissance d'attaque de base
-     * @param bonusUp  points ajoutés au bonus d'attaque
+     * @param powerUp points ajoutés à la puissance d'attaque de base
+     * @param bonusUp points ajoutés au bonus d'attaque
      */
     public void pickUp(int powerUp, int bonusUp) {
         setAttackPower(getAttackPower() + powerUp);
@@ -129,32 +121,15 @@ public class Wizard extends GameCharacter {
      *
      * @return une chaîne affichant le nom, la vie, l'attaque et les sorts équipés
      */
->>>>>>> e48b1ea2ff8fa48a612540ec3dfd40402a2d1f55
+
     @Override
     public String toString() {
         String sorts = "";
         if (fireBallSpell != null) sorts += " 🔥 " + fireBallSpell.getName();
         if (lightningSpell != null) sorts += " ⚡ " + lightningSpell.getName();
         return "🧙🏻‍♂️ " + super.toString() + (sorts.isEmpty() ? "" : " | Sorts : " + sorts);
-<<<<<<< HEAD
-    }
 
-    public void setFireBallSpell(Spell fireBallSpell) {
-        this.fireBallSpell = fireBallSpell;
-
-    }
-
-    public void setLightningSpell(Spell lightningSpell) {
-        this.lightningSpell = lightningSpell;
-
-    }
-
-    public void pickUp(int powerUp, int bonusUp) {
-        setAttackPower(getAttackPower() + powerUp);
-        setAttackBonus(getAttackBonus() + bonusUp);
-
-=======
->>>>>>> e48b1ea2ff8fa48a612540ec3dfd40402a2d1f55
     }
 }
+
 

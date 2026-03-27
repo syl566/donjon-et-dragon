@@ -20,21 +20,20 @@ public class Board {
             cells.add(new EmptyCell()); /* toutes les cases vides par défaut*/
         }
 
-<<<<<<< HEAD
+
         /*🐉 Dragons (cases 45, 52, 56, 62)*/
         cells.set(45, new Dragon("Ryuu"));
         cells.set(52, new Dragon("Ryuu"));
         cells.set(56, new Dragon("Ryuu"));
         Dragon finalDragon = new Dragon("Ryuu");
-        finalDragon.setFinalBoss(true);
         cells.set(65, finalDragon);
-=======
+
         // 🐉 Dragons (cases 45, 52, 56, 62)
         cells.set(45, new Dragon("Dragon"));
         cells.set(52, new Dragon("Dragon"));
         cells.set(56, new Dragon("dragon"));
         cells.set(64, new Dragon("Ryuu", true));
->>>>>>> e48b1ea2ff8fa48a612540ec3dfd40402a2d1f55
+
 
         /*🧙 Sorciers (cases 10, 20, 25, 32, 35, 36, 37, 40, 44, 47)*/
         cells.set(10, new Witch("Gargamel"));

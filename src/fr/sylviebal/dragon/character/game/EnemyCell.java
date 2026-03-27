@@ -6,6 +6,7 @@ import fr.sylviebal.dragon.character.hero.Wizard;
 import java.util.Scanner;
 
 public abstract class EnemyCell extends Cell {
+
     protected String name;
     protected int life;
     protected int attackPower;
@@ -17,30 +18,6 @@ public abstract class EnemyCell extends Cell {
         this.attackPower = attackPower;
     }
 
-    @Override
-    public void interact(GameCharacter character) {
-        Story.onEnemyEncounter(this.name);
-
-        int playerAttack = character.getAttackPower();
-        if (character.getOffensiveEquipment() != null) {
-            playerAttack += character.getOffensiveEquipment().getOffensivePower();
-        }
-
-        this.takeDamage(playerAttack);
-        System.out.println(" " + character.getName() + " frappe " + name + " avec " + playerAttack + " puissance d'attaque !");
-        System.out.println("💔 " + name + " : ❤️ " + this.life + " restant");
-
-        character.setAttackPower(character.getAttackPower() - 1);
-        System.out.println("😓 Le combat épuise " + name + " ! Attaque : " + character.getAttackPower());
-
-        if (!this.isAlive()) {
-            System.out.println("💀 " + name + " est vaincu !");
-        } else {
-            System.out.println("💥 " + name + " réplique et s'enfuit !");
-            character.takeDamage(this.attackPower);
-        }
-    }
-
     public boolean isAlive() {
         return life > 0;
     }
@@ -49,8 +26,6 @@ public abstract class EnemyCell extends Cell {
         this.life -= damage;
         if (this.life < 0) this.life = 0;
     }
-<<<<<<< HEAD
-=======
 
     @Override
     public void interact(GameCharacter character) {
@@ -59,10 +34,9 @@ public abstract class EnemyCell extends Cell {
         System.out.println("⚔️ Combat contre " + name + " ! ❤️ " + life);
 
         while (character.isAlive() && this.isAlive()) {
-            System.out.println("\n Que veux-tu faire ?");
+            System.out.println("\nQue veux-tu faire ?");
             System.out.println("1 - Attaque de base");
 
-            // ✅ Affiche les options selon l'équipement
             if (character.getOffensiveEquipment() != null) {
                 System.out.println("2 - Utiliser " + character.getOffensiveEquipment().getName());
             }
@@ -85,7 +59,7 @@ public abstract class EnemyCell extends Cell {
                 }
             }
 
-            // ✅ Lecture du choix
+            //  Lecture du choix
             int choice = 1;
             if (scanner.hasNextInt()) {
                 choice = scanner.nextInt();
@@ -94,7 +68,7 @@ public abstract class EnemyCell extends Cell {
                 scanner.nextLine();
             }
 
-            // ✅ Calcul de l'attaque selon le choix
+            //  Calcul de l'attaque selon le choix
             playerAttack = character.getAttackPower();
             switch (choice) {
                 case 1:
@@ -133,11 +107,11 @@ public abstract class EnemyCell extends Cell {
                     System.out.println("❌ Choix invalide, attaque de base !");
             }
 
-            // ✅ Application des dégâts
+            //  Application des dégâts
             this.takeDamage(playerAttack);
             System.out.println(name + " : ❤️ " + this.life + " restant");
 
-            // ✅ Le combat épuise le joueur
+            // Le combat épuise le joueur
             character.setAttackPower(character.getAttackPower() - 1);
             System.out.println("😓 " + character.getName() + " est épuisé ! Attaque : " + character.getAttackPower());
 
@@ -151,5 +125,4 @@ public abstract class EnemyCell extends Cell {
             System.out.println("🏆 Tu as vaincu " + name + " !");
         }
     }
->>>>>>> e48b1ea2ff8fa48a612540ec3dfd40402a2d1f55
 }
