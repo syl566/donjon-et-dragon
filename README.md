@@ -22,9 +22,9 @@ Le joueur choisit son personnage (**Warrior** ou **Wizard**), lance un dé à ch
 - 🧙 2 personnages jouables : Warrior et Wizard
 - 👺 3 types d'ennemis : Dragon, Gobelin, Sorcier
 - 🎁 6 types de bonus : Potion, Grande Potion, Épée, Massue, Sort Éclair, Boule de Feu
-- 💾 Sauvegarde des personnages en base de données MySQL
+- 💾 Sauvegarde des personnages en base de données MariaDB
 
-- 📖 Narration et animations ASCII à chaque événement
+- 📖 Narration à chaque événement
 
 
 
@@ -70,8 +70,6 @@ OffensiveEquipment (abstract)
 
 - Java 17+
 
-- MySQL 8+
-
 - Maria DB
 
 - IntelliJ IDEA (recommandé)
@@ -83,8 +81,8 @@ OffensiveEquipment (abstract)
 git clone https://github.com/SYL566/donjon-et-dragon.git
 ```
 
-2. Crée la base de données MySQL :
-```sql
+2. Crée la base de données MariaDB:
+```
 CREATE DATABASE donjon_et_dragon;
 ```
 
@@ -126,19 +124,11 @@ Choisissez votre personnage :
 | Technologie | Usage |
 |-------------|-------|
 | Java 17 | Langage principal |
-| MySQL 8 | Base de données |
-| MySQL Connector J | Connexion JDBC |
-| IntelliJ IDEA | IDE |
-| Git | Versioning |
-=======
-| Technologie   | Usage |
-|---------------|-------|
-| Java 17       | Langage principal |
 | MariaDB       | Base de données |
 |               | Connexion JDBC |
-| IntelliJ IDEA | IDE |
-| Git           | Versioning |
 
+| IntelliJ IDEA | IDE |
+| Git | Versioning |
 
 ---
 
